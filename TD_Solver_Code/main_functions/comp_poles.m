@@ -44,7 +44,7 @@ function [pols,errs,nfevals] = comp_poles(ps, lp, plot_poles)
         
     % If computing power allows, refine each pol approximation with a secant method or localized AAA
     if ps.use_secant
-        [pols, errs, nfevals_s] = sec_ref(f,pols,ps.sec_its,ps.sec_tol,ps.nworkers);
+        [pols, errs, nfevals_s] = sec_ref(f,pols,ps.sec_its,ps.sec_tol);
         if plot_poles
             hold on
             plot(pols,'^')

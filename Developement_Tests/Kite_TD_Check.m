@@ -7,8 +7,12 @@ figure(1)
 clf
 hold on
 curve.draw()
+% NF
+% xs = [-1.2,1.2]; ys = [0,0];
 
-xs = [-1.2,1.2]; ys = [0,0];
+% FF
+xs = [-1,1]; ys = [0,0];
+
 plot(xs,ys,'*')
 hold off
 
@@ -17,7 +21,7 @@ hold off
 lp = CombinedPotential(curve,-4);
 
 ps = problem_data("xs",xs,"ys",ys,"wlims",wlims,"sigmas",sigmas,'Tlims',[0,25],'is_open_curve',false, ...
-    'kappa',[1,0],'numt',300,'numw',200,'w_0',5,'t_0',10);
+    'kappa',[-1,0],'numt',300,'numw',200,'w_0',5,'t_0',10,'is_far_field',true);
 
 [usol, scat_sol, f_sols] = cts_basic(ps,lp);
 

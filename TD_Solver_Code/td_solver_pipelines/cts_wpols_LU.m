@@ -1,16 +1,14 @@
-function [usol, scat_sol, r_res, pols, smoothint, f_sols, zeroint] = cts_wpols(ps,lp, pols, L, U)
+function [usol, scat_sol, r_res, pols, smoothint, f_sols, zeroint] = cts_wpols_LU(ps,lp, pols, L_rl, U_rl,L_pole,U_pole)
     % Version of the algorithm where the poles are computed using the adaptive search
     % method. Then residues are subtracted out in the inverse fourier transform.
     % Inputs:
-    %   the pols argument is optional, if it is not passed in poles are computed.
-    %   L and U are optional, but they are the LU matrices for the pole
-    %   computation
-    if nargin == 2
-        [pols, err] = comp_poles(ps,lp,true);
-    end
+    %   pols must be passed in.
+    %   L_rl, U_rl is a cell array of the needed real frequency LUs
+    %   L_pole, U_pole are cell arrays of cell arrays of the needed LUs for
+    %   computing the density residue.
 
     disp("Starting with Res dens");
-    res_dens = comp_res_dens(ps, lp, pols);
+    res_dens = comp_res_dens(ps, lp, pols, L_pole, U_pole);
     
     % F2 compute bkslow
     disp("Starting Bkslow");
@@ -18,7 +16,7 @@ function [usol, scat_sol, r_res, pols, smoothint, f_sols, zeroint] = cts_wpols(p
    
     % F3 compute the densitites
     disp("Starting Densitites");
-    densities = comp_dens(ps,lp);
+    densities = comp_dens(ps,lp, L_rl, U_rl);
    
 
     % Compute the residues

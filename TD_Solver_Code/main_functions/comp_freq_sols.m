@@ -39,7 +39,11 @@ function f_sols = comp_freq_sols(ps,lp, densities, Bkslow, pols, r_res)
 
             if (tt == 1)
             for wind = 1:numw
-                if ps.is_open_curve
+                
+                if ps.is_far_field
+                    solw = lp.eval_far_field(ps.ws(wind),densities(:,wind),[xx;yy]);
+                elseif ps.is_open_curve
+  
                     solw = Scattered_Field(densities(:,wind),[],xx,yy,lp.curve,...
                             ps.ws(wind),'Dirichlet', 'None');
                 else
