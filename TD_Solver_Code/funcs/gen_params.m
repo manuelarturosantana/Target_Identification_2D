@@ -4,8 +4,22 @@ function ps = gen_params(varargin)
 % N            : Number of points used for discretization of the scatterer default 160
 % wlims        : The bounds on the values of omega to consider
 % numw          : How many frequency points to use, must be even default 80
-% xlims/ylims  : limit on x values to consider Default [-3,3] each
-% numx, numy   : How many x and y values to use in generating the solution default 120
+
+% Two Ways of choosing spatial evaluation points:
+% Way 1:
+%   Directly pass in xs and ys as 1D arrays representing pairs of points to evaluate the field at. 
+% Way 2:
+% Pass in the following:
+%   xlims/ylims  : limit on x values to consider 
+%   numx, numy   : How many x and y values to use in generating the solution 
+%   This will create a grid of (x,y) pairs represented as a numy x numx
+%   matrix which is then flattened column wise. So the final answer in the
+%   x dimesion will have first dimension of size numy * numx and can be
+%   reshaped to be back in the grid.
+%   Note that ps.xs, and ps.ys will then contain the flattened mesh grids.
+%
+
+
 % Tlims        : Limits on which time values to consider. Default [0,10]
 %                Note that the first window goes from [Tlims(1), H].
 %                That is no windowing is implemented for large negative
@@ -18,7 +32,8 @@ function ps = gen_params(varargin)
 %                  - erfc: (default)  Pou based off of complementary error function. Exact only to machine percision
 %                          but has faster decaying fourier modes, which may lead to better convergence.
 %                  Note after parameters are initialized this will be a function not a string.
-% nworkers     : Number of parallel workers, DEPRECIATED: Now we use thread pools and cannot specify this.
+% is_far_field: If true, the spatial evaluation points are assumed to be
+%               on the unit disk and the far field pattern is used. 
 % is_open_curve: If true use diffarcs, syntax, otherwise use curve syntax.
 % use_FC       : If true use and FC expansion for the integration step. DEPRECIATED: No more FC since window the subtraction
 %
@@ -75,18 +90,20 @@ function ps = gen_params(varargin)
 %% General Problem Parameters
 ps.N               = 160;
 ps.numw            = 80;
-ps.xlims           = [-3,3];
-ps.ylims           = [-3,3];
-ps.numx            = 120;
-ps.numy            = 120;
+ps.xlims           = [];
+ps.ylims           = [];
+ps.numx            = 0;
+ps.numy            = 0;
+ps.xs              = [];
+ps.ys              = [];
 ps.Tlims           = [0,10];
 ps.numt            = 50;
 ps.kappa           = [0,1];
 ps.H               = 10;
 ps.pou_name        = "erfc";
-ps.nworkers        = 0;
 ps.is_open_curve   = true;
 ps.n_eint          = 3000;
+ps.is_far_field    = false;
 
 %% Zero Frequency Content Parameters
 ps.w_c             = 1;
@@ -126,22 +143,22 @@ if (mod(nargin, 2) ~= 0)
     error("Generate Hyper Params: odd number of arguments, pass in key value pairs")
 end
 
-validKeys = containers.Map( ...
-    {'N','wlims','numw','xlims','ylims','numx','numy','Tlims','numt', ...
-     'kappa','H','pou_name','nworkers','is_open_curve','n_eint', ...
-     'w_c','chebN','q','npatch','M_asym','numwFC','do_win_zero', ...
-     'inc_field','w_0','sigmas','t_0','csupp', ...
-     'wimag','p_numx','p_numy','use_secant','sec_its','sec_tol', ...
-     'mmax','use_rec_alg','nscal','aaa_tol', ...
-     'n_res_w','cont_rad'}, ...
-    true(1,41) );
+validKeys = ...
+    {'N','wlims','numw','xlims','ylims','numx','numy','xs','ys','Tlims','numt', ...
+     'kappa','H','pou_name','nworkers','is_open_curve','n_eint', ... 
+     'w_c','chebN','q','npatch','M_asym','numwFC','do_win_zero', ... % Zero Frequency
+     'inc_field','w_0','sigmas','t_0','csupp', ... % Time domain
+     'wimag','p_numx','p_numy','use_secant','sec_its','sec_tol', ... % pole finding
+     'mmax','use_rec_alg','nscal','aaa_tol', ... % Residue and pole computation for aaa sv
+     'n_res_w','cont_rad','is_far_field'}; % Residue computation 
+
 
 ii = 1;
 while ii < nargin
     key = varargin{ii};
     val = varargin{ii+1};
 
-    if ~isKey(validKeys, key)
+    if ~any(strcmp(key, validKeys))
         error("Error: '%s' is not a valid field.", key);
     end
 
@@ -153,4 +170,9 @@ while ii < nargin
 
     ii = ii + 2;
 end
+
+%% Some sanity checks
+    if ps.inc_field == "gaussian" && (ps.w_0 > ps.wlims(2) || ps.w_0 < ps.wlims(1))
+        error("Gen Params: The center of the gaussian is not in wlims")
+    end
 end

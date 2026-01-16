@@ -15,12 +15,14 @@ function [usol, scatsol, smoothint, zeroint] = comp_time_sol(ps,lp,f_sols,pols, 
     %   r_res  : The computed residues from comp_r_res. Pass in empty if not using.
     %
     % Outputs:
-    %   usol     : A numx x numy x numt tensor containing the total field at computed times
-    %   scatsol  : A numx x numy x numt tensor containing just the scattered field at computed times.
-    %   smoothint: A numx x numy x numt tensor containing the integral with the residues subtracted out
+    %   usol     : A num_spat_points x numt tensor containing the total
+    %              field at computed times. If ps.is_far_field, then the incident
+    %              field is not added in, and scatsol is the same as usol
+    %   scatsol  : A num_spat_points x numt tensor containing just the scattered field at computed times.
+    %   smoothint: A num_spat_points x numt tensor containing the integral with the residues subtracted out
     %              if residues are used, otherwise returns empty. Returns just the FC window
     %              portion if zero frequency windowing is used.
-    %   zeroint : A numx x numy x numt tensor containing the zero frequency windowed integral
+    %   zeroint : A num_spat_points x numt tensor containing the zero frequency windowed integral
     %              if zero frequency windowing is used. otherwise returns empty.
 
     % Check to see if the residuals were passed in for integration. In this implementation 

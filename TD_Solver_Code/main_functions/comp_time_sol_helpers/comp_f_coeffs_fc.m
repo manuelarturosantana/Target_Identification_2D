@@ -15,8 +15,8 @@ function [f_coeffs,k,P] = comp_f_coeffs_fc(ps, f_sols)
     % The distance in the FC grid.
     h = ps.ws(ps.gmend+2) - ps.ws(ps.gmend+1);
 
-    f_coeffs = zeros(ps.numx, ps.numy,ps.numwFC + NCONT_POINTS, ps.numk);
-    numk = ps.numk; numy = ps.numy; 
+    f_coeffs = zeros(ps.num_spat_res, ps.numwFC + NCONT_POINTS, ps.numk);
+    numk = ps.numk;
     
     % Was running into a strange bug with the FC code, so now the matrices
     % are loaded before the loop, this saves time as these matrices are
@@ -30,17 +30,14 @@ function [f_coeffs,k,P] = comp_f_coeffs_fc(ps, f_sols)
     Q = double(Q);
     Q_tilde = double(Q_tilde);
     
-    % for xind=1:ps.numx
-    parfor xind=1:ps.numx
+    parfor sind=1:ps.num_spat_res
         for kind = 1:numk
-            for yind=1:numy
                 % Only grab the points after the graded mesh frequencies
-                omega_vals = f_sols(xind,yind,ps.gmend+1:end,kind);
+                omega_vals = f_sols(sind,ps.gmend+1:end,kind);
                 % Smoothen by subtracting the residues
                 omega_vals = omega_vals(:);
                 [fc_coeffs, ~, ~] = fc_interp(omega_vals,h,10,A,Q,Q_tilde);
-                f_coeffs(xind,yind,:,kind) = fc_coeffs;
-            end
+                f_coeffs(sind,:,kind) = fc_coeffs;
         end
     end
     % Compute the wave vector and the period for the fist FC integral.

@@ -18,40 +18,40 @@ function [usol, scatsol, smoothint, zeroint] = freq_to_time_zero(ps,lp,f_sols,k,
     %  [usol, scatsol, smoothint] = freq_to_time(ps,lp,f_coeffs,eint,r_res) Residue subtraction case without zero freqeuncy windowing
 
     use_res = (nargin >=8);
-    usol = zeros(ps.numx,ps.numy,ps.numt);
-    scatsol = zeros(ps.numx,ps.numy,ps.numt);
+    usol = zeros(ps.num_spat_pts,ps.numt);
+    scatsol = zeros(ps.num_spat_pts,ps.numt);
     if use_res
         nump = size(eint,1);
         % Edge case for if AAA_SV is not resolved enough to find any poles.
         % Then we must set the parameters so that the parfor loop still
         % works.
         if nump == 0
-            nump = 1; eint=zeros(nump,ps.numt,ps.numk); r_res=zeros(ps.numx,ps.numy,nump);
+            nump = 1; eint=zeros(nump,ps.numt,ps.numk); r_res=zeros(ps.num_spat_pts,nump);
         end
 
-        smoothint = zeros(ps.numx,ps.numy,ps.numt);
-        zeroint = zeros(ps.numx,ps.numy,ps.numt);
+        smoothint = zeros(ps.num_spat_pts,ps.numt);
+        zeroint = zeros(ps.num_spat_pts,ps.numt);
     else % These initializations are to make the parfor parser happy
         nump = 1;
-        smoothint = zeros(ps.numx,ps.numy,ps.numt);
-        zeroint = zeros(ps.numx,ps.numy,ps.numt);
-        eint=zeros(nump,ps.numt,ps.numk); r_res=zeros(ps.numx,ps.numy,nump);
+        smoothint = zeros(ps.num_spat_pts,ps.numt);
+        zeroint = zeros(ps.num_spat_pts,ps.numt);
+        eint=zeros(nump,ps.numt,ps.numk); r_res=zeros(ps.num_spat_pts,nump);
     end
 
     % Endpoints for inverse fc integration
     fc_a = ps.ws(ps.gmend + 1); fc_b = ps.ws(end);
 
     % For loop indicies must be variables, not in a structure for par for.
-    numt = ps.numt;  numk = ps.numk; numy = ps.numy; 
+    numt = ps.numt;  numk = ps.numk; 
    
-    parfor xind=1:ps.numx
-    % % for xind=1:ps.numx
-        for yind=1:numy
+    parfor sind=1:ps.num_spat_pts
             % We test the distance so points inside the curve don't get evaluated.
-            if ps.is_open_curve
-                tt = Test_Distance(lp.curve,ps.xs(xind),ps.ys(yind));
+            if ps.is_far_field
+                tt = 1
+            elseif ps.is_open_curve
+                tt = Test_Distance(lp.curve,ps.xs(sind),ps.ys(sind));
             else
-                tt = lp.curve.test_distance(ps.xs(xind),ps.ys(yind));
+                tt = lp.curve.test_distance(ps.xs(sind),ps.ys(sind));
             end
             if (tt == 1)
 
@@ -60,29 +60,29 @@ function [usol, scatsol, smoothint, zeroint] = freq_to_time_zero(ps,lp,f_sols,k,
                 for kind = 1:numk
                     % Compute the integrals for the non-zero frequency
                     % content
-                    cms  = fc_coeffs(xind,yind,:,kind);
+                    cms  = fc_coeffs(sind,:,kind);
                     cms = cms(:).';
                     % Here per equation 23 we evaluate at the t talue t - sk
                     ksol_fc = ft_fc(cms,k,P,fc_a,fc_b,ps.ts(tind) - ps.sk(kind));
                     
                     % Compute the zero frequency integrals.
-                    zer_freq_intsk = gfcc_int(f_sols(xind,yind,1:ps.gmend,kind),...
+                    zer_freq_intsk = gfcc_int(f_sols(sind,1:ps.gmend,kind),...
                         ps.ts(tind) - ps.sk(kind),ps.ccps,ps.hs, ps.cs,weights(:,tind,:,kind),ps.npatch);
                     ksol = ksol_fc + zer_freq_intsk;
                     
                    
                     if use_res
                         if ps.do_win_zero
-                            zeroint(xind,yind,tind)   = zeroint(xind,yind,tind) + zer_freq_intsk;
-                            smoothint(xind,yind,tind) = smoothint(xind,yind,tind) + ksol_fc;
+                            zeroint(sind,tind)   = zeroint(sind,tind) + zer_freq_intsk;
+                            smoothint(sind,tind) = smoothint(sind,tind) + ksol_fc;
                         else
-                            smoothint(xind,yind,tind) = smoothint(xind,yind,tind) + ksol;
+                            smoothint(sind,tind) = smoothint(sind,tind) + ksol;
                         end
 
                        
                         % Add in the exp integral for each term
                         for pind = 1:nump
-                            ksol = ksol + r_res(xind,yind,pind) * eint(pind,tind,kind);
+                            ksol = ksol + r_res(sind,pind) * eint(pind,tind,kind);
                         end
                     end
                     % Don't forget the fourier transform normalization
@@ -90,16 +90,17 @@ function [usol, scatsol, smoothint, zeroint] = freq_to_time_zero(ps,lp,f_sols,k,
                     % Also multiply by 2 because it is the inverse fourier transform of
                     % a real function.
                     ksol = 1/(pi) * ksol;
-                    usol(xind,yind,tind) = usol(xind,yind,tind) + ksol;
+                    usol(sind,tind) = usol(sind,tind) + ksol;
                 end % ks
                 % Saving just the scattered solution.
-                scatsol(xind, yind, tind) = usol(xind,yind,tind);
+                scatsol(sind, tind) = usol(sind,tind);
                 % Add in the incident wave
-                usol(xind, yind, tind)   = usol(xind, yind,tind) + ...
-                ps.uinc(ps.xs(xind),ps.ys(yind),ps.ts(tind));
+                if ~ps.is_far_field
+                    usol(sind,tind)   = usol(sind, tind) + ...
+                    ps.uinc(ps.xs(sind),ps.ys(sind),ps.ts(tind));
+                end
             end %ts
             
             end % If the point is outside the curve.
-        end %y ind
-    end % xind
+    end % sind
 end % Function.

@@ -8,6 +8,7 @@ function ps = init_params(ps)
 % ts   : The times to compute the solutions at which are taken uniformly between Tlims.
 % xs,ys: The spatial points r = (x,y) to evaluate the solution at.
 % ws: The omega values.
+% num_spat_pts : The total number of spatial points to be evaluated at
 %
 %% Zero Frequency Parameters Initialized
 % numw     : The total number of frequencies used from the graded mesh and fourier continuation
@@ -28,8 +29,24 @@ function ps = init_params(ps)
 % Now we initialize other parameters based on the inputs
 
     ps.ts   = linspace(ps.Tlims(1),ps.Tlims(2),ps.numt);
-    ps.xs   = linspace(ps.xlims(1),ps.xlims(2),ps.numx);
-    ps.ys   = linspace(ps.ylims(1),ps.ylims(2),ps.numy);
+    
+    if (isempty(ps.xs) && ~isempty(ps.ys)) || ~isempty(ps.xs) && isempty(ps.ys)
+        error("init_params: only one of xs and ys was passed in. Did you mean to specify both?")
+    end
+
+    if isempty(ps.xs) && isempty(ps.ys)
+        if (isempty(ps.xlims) || isempty(ps.ylims) || ps.numx == 0 || ps.numy == 0)
+            error("init_params: xlims/ylims and numx/numy not fully specified")
+        end
+
+        tempxs  = linspace(ps.xlims(1),ps.xlims(2),ps.numx);
+        tempys  = linspace(ps.ylims(1),ps.ylims(2),ps.numy);
+
+        [X,Y] = meshgrid(tempxs,tempys); X = X'; Y = Y.';
+        ps.xs = X(:); ps.ys = Y(:);
+    end
+    
+    ps.num_spat_pts = length(ps.xs);
     
   
     if ps.wlims(1) <= 0 && ps.wlims(2) >= 0
