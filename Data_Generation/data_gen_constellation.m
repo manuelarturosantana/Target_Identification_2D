@@ -21,6 +21,12 @@ scat_name = [repmat("circular cavity",1,length(gap_sizes_ellipse)),...
              repmat("elliptic cavity",1,length(gap_sizes_ellipse))];
 gap_sizes = [gap_sizes_ellipse, gap_sizes_ellipse];
 
+xshifts = {[0,0], [5, 2.6], [2.7, 5], [2.5, 4.8], [10]};
+yshifts = {[2.6, 5], [0, 2.4], [0, 0], [2.5, 4.8], [0]};
+
+constellation_names = {"snowman","triangle","line","diagonal","two_far"};
+
+
 %% Visual Sanity Check that you have picked good incident and time domain
 % field parameters.
 [sigmas,wlims] = gauss_picker(w_0,freq_gauss_width,gauss_picker_tol);
@@ -81,48 +87,67 @@ for ii = 1:length(gap_sizes)
     pol_comp_time = toc(pstart)
     pols_wp = sort(pols_wp,"comparisonMethod","real");
 
-   
-    tic
-    [L_rl,U_rl] = comp_bie_LU(psp.ws,lp);
-    LU_time_real_line = toc
+    for sind = 1:length(xshifts)
 
-    tic
-    [L_pole, U_pole] = comp_pole_LU(psp,lp,pols_wp);
-    LU_time_pols = toc
-
-    if are_recivers_random
-        [xs, ys] = ff_points_random(angle1,angle2,num_recievers_per_obs);
-    else
-        [xs, ys] = ff_points_equally_spaced(angle1,angle2,num_recievers_per_obs);
-    end
-    
-    uff_all     = [];
-    r_res_all    = [];
-
-    for rind = 1:num_recievers_per_obs
-        x = xs(rind); y = ys(rind);
-        psp = problem_data('wlims',wlims,'N',N,'Tlims',tlims,'kappa',[-x,-y],...
-        'numt', numt,'numw',numw,'w_0',w_0,'t_0',t_offset,'sigmas',sigmas,'wimag',-0.3,...
-        'is_far_field',true,'xs',x,'ys',y);
+        [lp, mc] = setup_constellation(curve, xshifts{sind},yshifts{sind}, false);
         
+        % poles for the constellation
+        disp("Computing poles for scatterer " + num2str(ii) + " const " + constellation_names{sind});
+
+        % Add one b/c of the base unshifted scattere.
+        N_c = N * (length(xshifts{sind}) + 1);
+
+        % A poor implementation nmae of is_open_curve b/c multiple
+        % scattering should be has to have is open curve false. I should
+        % unify the API
+        psp = problem_data('wlims',wlims,'numw',numw,'xs',0,'ys',0,'wimag',-0.3,'N', N_c,'is_open_curve',false);
+        pols_c = comp_poles(psp,lp);
+
         tic
-        [uff, ~, r_res] = cts_wpols_LU(psp,lp, pols_wp, L_rl, U_rl,L_pole,U_pole);
-        single_reciever_comp_time = toc
-        uff = uff(:).'; r_res = r_res(:).';
-
-        uff_all = [uff_all; uff];
-        r_res_all = [r_res_all;r_res];
-       
-    end
-
-    ts = psp.ts;
+        [L_rl,U_rl] = comp_bie_LU(psp.ws,lp);
+        LU_time_real_line = toc
+    
+        tic
+        [L_pole, U_pole] = comp_pole_LU(psp,lp, pols_c);
+        LU_time_pols = toc
+    
+        if are_recivers_random
+            [xs, ys] = ff_points_random(angle1,angle2,num_recievers_per_obs);
+        else
+            [xs, ys] = ff_points_equally_spaced(angle1,angle2,num_recievers_per_obs);
+        end
         
-    curveX = curve.X; curveY = curve.Y;
-    pols = pols_wp;
-    % xs and ys are the reciever locations
-    sname = strrep(scat_name(ii),' ','');
-    save("/scratch/msantana/time_domain_data_2D/"+sname + num2str(gap_sizes(ii)) + ".mat",...
-        "r_res_all","uff_all","pols","ts","xs","ys","curveX","curveY")
+        uff_all     = [];
+        r_res_all    = [];
+    
+        for rind = 1:num_recievers_per_obs
+            x = xs(rind); y = ys(rind);
+            psp = problem_data('wlims',wlims,'N',N_c,'Tlims',tlims,'kappa',[-x,-y],...
+            'numt', numt,'numw',numw,'w_0',w_0,'t_0',t_offset,'sigmas',sigmas,'wimag',-0.3,...
+            'is_far_field',true,'xs',x,'ys',y,'is_open_curve',false);
+            
+            tic
+            [uff, ~, r_res] = cts_wpols_LU(psp,lp, pols_c, L_rl, U_rl,L_pole,U_pole);
+            single_reciever_comp_time = toc
+            uff = uff(:).'; r_res = r_res(:).';
+    
+            uff_all = [uff_all; uff];
+            r_res_all = [r_res_all;r_res];
+           
+        end
+    
+        ts = psp.ts;
+            
+        curveX = mc.xs(1,:); curveY = mc.xs(2,:);
+        pols_single = pols_wp;
+        pols_constellation = pols_c;
+        name = constellation_names{sind};
+
+        % xs and ys are the reciever locations
+        sname = strrep(scat_name(ii),' ','');
+        save("/scratch/msantana/time_domain_data_2D/constellation_tests/"+sname + num2str(gap_sizes(ii)) + "cind" + num2str(sind) + ".mat",...
+            "r_res_all","uff_all","pols_single","pols_constellation","ts","xs","ys","curveX","curveY","name")
+    end
 
 end
 total_time = toc(start)
