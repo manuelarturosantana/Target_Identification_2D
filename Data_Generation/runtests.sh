@@ -11,6 +11,6 @@
 
 module load matlab
 
-matlab -nodisplay -nosplash -nodesktop -nojvm -r data_gen_constellation 
-#matlab -nodisplay -nosplash -nodesktop -nojvm -r data_gen_example  
+#matlab -nodisplay -nosplash -nodesktop -nojvm -r data_gen_constellation 
+matlab -nodisplay -nosplash -nodesktop -nojvm -r data_gen_example  
 

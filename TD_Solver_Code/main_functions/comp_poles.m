@@ -19,7 +19,6 @@ function [pols,errs,nfevals] = comp_poles(ps, lp, plot_poles)
     N = size(lp.bie_mat(1),1);
     u = rand(1,N,'like',1i); v = rand(N,1,'like',1i);
     f = @(w) u * (lp.bie_mat(w) \ v);
-    % f = @(w) sr(lp,u,v,w);
 
     nfevals = nan;
     % If zero is in the limits we only compute the poles along the left
