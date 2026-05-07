@@ -1,0 +1,6448 @@
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2025 The MathWorks, Inc.
+             R2025b Update 1 (25.2.0.3042426) 64-bit (glnxa64)
+                              October 3, 2025
+
+ 
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+
+==================================================
+Running object 1 / 10: twinjet_plane1
+==================================================
+Starting parallel pool (parpool) using the 'Threads' profile ...
+Connected to parallel pool with 128 workers.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.123609e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.286109e-19.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  3.048417e-19.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  2.729797e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.084727e-19.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  7.478060e-19.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.260655e-19.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  9.094921e-19.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  8.323177e-19.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  3.191940e-19.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  3.251686e-19.
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.303820e-19.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_planes (line 136)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.698937e-19.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_planes (line 136)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.533624e-19.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_planes (line 136)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.084804e-19.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_planes (line 136)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  5.022689e-19.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_planes (line 136)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  3.997137e-19.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_planes (line 136)
+] 
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  3.148555e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  4.987121e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.139418e-19.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  7.895854e-20.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  2.431900e-19.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  6.625283e-20.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  6.253953e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  6.401935e-19.
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.955778e-20.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_planes (line 136)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  6.872924e-21.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_planes (line 136)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  6.185727e-19.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_planes (line 136)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  7.336062e-20.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_planes (line 136)
+] 
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.966564e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  2.667341e-19.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.498509e-16.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  8.723492e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.275527e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.985236e-19.
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.236678e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_planes (line 136)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  2.987235e-19.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_planes (line 136)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.726041e-19.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_planes (line 136)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  5.651651e-20.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_planes (line 136)
+] 
+
+pol_comp_time =
+
+  433.7941
+
+
+LU_time_real_line =
+
+   10.4383
+
+
+LU_time_pols =
+
+    9.1235
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   33.7029
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   32.7854
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   31.2450
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   35.1463
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   32.1377
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   34.5160
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   34.2091
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   32.1885
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   34.3086
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   33.6295
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   34.0042
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   34.6623
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   33.1686
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   35.2825
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   33.9653
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   34.3830
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   34.5568
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   34.1279
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   35.4037
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   36.5932
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   36.0276
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   33.6142
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   35.9464
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   34.4777
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   35.5885
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   35.0451
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   34.9656
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   36.0582
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   34.8806
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   36.8849
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   34.3998
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   37.0653
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   34.9065
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   37.7821
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   34.4607
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   37.7731
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   34.9383
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   37.8721
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   35.0128
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   37.8357
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   35.5519
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   38.0882
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   35.9211
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   37.6419
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   36.0284
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   37.9193
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   42.7819
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   38.9672
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   35.8810
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   38.7177
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   35.9583
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   39.1121
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   36.2327
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   39.2982
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   36.0542
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   39.5201
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   36.8531
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   40.0311
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   36.5490
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   40.0835
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   37.1290
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   40.2768
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   37.6073
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   40.2943
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   38.3203
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   40.7417
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   38.1954
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   40.5455
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   38.7336
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   40.2116
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   40.4271
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   39.0827
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   41.2823
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   38.4409
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   41.9266
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   38.5441
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   42.2649
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   39.5279
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   42.3769
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   40.0341
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   41.3209
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   40.8459
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   40.0458
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   42.5103
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   39.7398
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   43.1518
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   39.9966
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   43.7594
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   39.5673
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   42.9731
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   41.5856
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   40.8116
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   43.2451
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   40.6054
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   43.0741
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   41.1397
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   43.5207
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   40.6492
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   43.9241
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   41.1452
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   43.9707
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   41.1546
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   57.4214
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   43.1716
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   41.5565
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   43.5282
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   41.4275
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   44.6513
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   41.4948
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   44.0679
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   42.4071
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   44.3551
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   41.9056
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   44.1656
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   42.6455
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   43.7148
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   43.5008
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   43.5519
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   43.8329
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   42.3508
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   44.6898
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   42.1130
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   44.6355
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   41.5039
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   44.6523
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   41.4176
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   45.0883
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   42.1906
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   44.9007
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   44.3529
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   42.5068
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   44.6083
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   41.6240
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   44.8713
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   41.5477
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   45.3884
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   44.3135
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   43.2473
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   45.9379
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   41.9064
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   45.1408
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   42.7839
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   46.0706
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   46.4064
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   42.7633
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   45.6209
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   42.5192
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   46.1663
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   44.9223
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   43.5786
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   45.6610
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   42.6037
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   45.3390
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   45.3868
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   43.7068
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   47.1642
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   42.5971
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   45.5812
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   45.7629
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   43.0748
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   46.1891
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   44.4893
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   45.8837
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   45.9909
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   42.8413
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   47.0081
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   46.1752
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   43.8204
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   46.2712
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   43.9715
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   45.9500
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   46.2230
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   43.1855
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   45.9125
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   46.4008
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   43.1774
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   46.2744
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   46.3598
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   44.2810
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   46.7272
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   45.8626
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   44.8373
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   46.4623
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   44.6432
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   46.4948
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   47.9205
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   43.9671
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   47.4642
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   47.1333
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   43.5420
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   47.8206
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   46.5690
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   43.6269
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   46.5692
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   47.0349
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   43.8883
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   47.4921
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   47.3126
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   44.0024
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   48.2301
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   47.2271
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   44.5459
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   49.5732
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   47.3350
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   44.6336
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   47.6565
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   48.7246
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   45.6957
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   47.1919
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   48.6973
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   46.7191
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   46.1932
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   47.3934
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   47.8135
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   78.2465
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   46.9305
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   46.3148
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   45.8685
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   47.5652
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   49.0364
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   45.6471
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   47.7520
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   49.2075
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   46.3545
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   48.1559
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   47.7631
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   47.1012
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   48.4142
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   47.9132
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   47.8715
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   46.3041
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   48.1682
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   48.2345
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   45.2619
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   49.3516
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   48.1540
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   47.5791
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   47.3080
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   48.0621
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   48.1813
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   45.6117
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   48.3398
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   48.5225
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   47.1812
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   47.9650
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   48.6866
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   48.4824
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   45.8040
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   48.2645
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   48.6113
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   48.2352
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   47.7623
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   48.5708
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   49.0429
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   45.8241
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   48.3941
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   50.2394
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   48.8670
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   47.2808
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   49.1950
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   48.7821
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   48.3624
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   48.5304
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   48.7831
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   49.1798
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   46.2053
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   50.5130
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   48.8671
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   49.2180
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   46.4207
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   49.2751
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   49.4162
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   49.2402
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   47.8361
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   49.2738
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   49.7113
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   49.8082
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   48.2512
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   49.4200
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   49.4187
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   48.8653
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   49.4623
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   49.5762
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   49.8450
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   47.7864
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   50.4106
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   49.8204
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   49.9783
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   47.5297
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   51.3051
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   50.2842
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   49.9970
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   47.4387
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   49.5621
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   50.0162
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   50.7006
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   48.3557
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   51.5242
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   51.8597
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   50.4442
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   48.7486
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   53.6219
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   50.5170
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   50.6984
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   48.6086
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   51.3487
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   50.1690
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   50.8809
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   49.9975
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   50.6175
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   50.5329
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   50.5769
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   50.7763
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   49.4951
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   50.7776
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   50.8115
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   51.1003
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   47.9801
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   50.8595
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   50.8149
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   50.9630
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   48.2961
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   53.1496
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   50.9040
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   51.5504
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   49.8368
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   52.1941
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   51.4529
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   51.2592
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   51.2374
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   50.2858
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   51.3369
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   51.0396
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   51.4634
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   48.5997
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   53.2534
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   51.2661
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   51.5686
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   51.1304
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   50.6367
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   51.5065
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   52.0291
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   51.7736
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   48.7632
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   53.8982
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   51.4148
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   51.9584
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   51.5128
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   51.7345
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   51.5588
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   51.8419
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   54.2697
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   48.9945
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   52.1101
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   51.9201
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   52.0574
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   51.9512
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   51.5746
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   52.3866
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   51.8742
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   52.3091
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   49.2738
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   52.1584
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   52.4074
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   52.2483
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   52.7815
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   49.7645
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   52.6037
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   52.3418
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   52.6961
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   52.7880
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   51.9440
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   52.7265
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   52.1983
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   52.6519
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   50.7956
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   54.2347
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   52.7192
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   52.5213
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   52.9804
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   49.7763
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   52.6691
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   52.7871
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   53.0911
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   53.0275
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   50.5343
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   55.6053
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   53.1253
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   52.9381
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   53.2124
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   50.6542
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   53.3458
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   52.9049
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   53.2821
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   53.4672
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   50.5288
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   53.4597
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   52.9967
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   53.5788
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   56.7186
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   52.6445
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   53.8411
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   53.4080
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   53.5631
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   53.8061
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   53.2391
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   53.8578
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   56.3377
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   53.9733
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   53.7898
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   53.5904
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   53.9927
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   54.1502
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   56.4917
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   54.1620
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   54.1961
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   54.3103
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   54.0556
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   53.9316
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   54.2281
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   51.2146
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   54.7036
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   54.1059
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   54.0430
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   54.4325
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   51.6661
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   56.7808
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   54.5568
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   54.3153
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   54.2855
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   51.9033
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   56.7325
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   54.5952
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   53.9742
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   54.9646
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   54.2610
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   55.2150
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   54.7629
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   54.5864
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   54.6173
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   54.3749
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   54.1682
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   54.9229
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+  120.6728
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   56.5976
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   51.4554
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   56.0461
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   53.8492
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   54.8302
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   54.7013
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   54.8193
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   52.0990
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   55.1561
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   55.1864
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   57.9597
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   58.3068
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   52.5586
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   54.9875
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   55.1296
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   55.4387
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   55.2441
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   55.2159
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   52.2395
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   55.3446
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   55.6243
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   55.1710
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   55.7108
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   53.8933
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   57.9959
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   55.8728
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   55.4972
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   55.4332
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   55.6225
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   52.8093
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   59.1387
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   55.6484
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   55.8798
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   55.9925
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   55.3281
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   57.3677
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   55.8849
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   56.3656
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   55.6657
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   56.1803
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   53.3149
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   56.1943
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   55.7892
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   56.5366
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   56.2206
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   56.4025
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   53.3177
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   56.3803
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   56.1397
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   56.2737
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   56.5646
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   56.3934
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   57.0309
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   56.7458
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   56.3535
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   59.4341
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   56.9065
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   53.8064
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   59.3977
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   56.4198
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   56.8697
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   56.3584
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   57.0577
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   54.1700
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   60.1083
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   56.4945
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   57.2313
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   56.5514
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   56.9184
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   54.7038
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   57.1426
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   56.9217
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   57.3151
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   56.9101
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   57.3884
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   54.9352
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   57.5003
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   57.1453
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   57.1794
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   61.0083
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   57.0849
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   54.9437
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   57.6794
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   57.2073
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   57.6731
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   57.1166
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   57.4148
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   54.8447
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   57.8426
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   57.6437
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   57.6853
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   57.4164
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   57.9681
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   55.2413
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   58.0383
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   57.7943
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   57.8494
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   57.9639
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   58.0600
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   55.1563
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   58.0169
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   58.3537
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   58.1556
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   58.0881
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   58.0547
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   56.2662
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   62.8802
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   60.8062
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   61.1603
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   61.3909
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   61.7669
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   59.5042
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   61.4404
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   61.8324
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   61.6530
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   61.4846
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   61.7417
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   59.7488
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   61.8588
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   62.2090
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   61.9107
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   62.1119
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   62.2868
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   60.1394
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   66.0946
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+slurmstepd: error: *** JOB 12004 ON wavefield-02-02 CANCELLED AT 2026-03-30T21:50:04 ***

@@ -1,0 +1,1634 @@
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2025 The MathWorks, Inc.
+             R2025b Update 1 (25.2.0.3042426) 64-bit (glnxa64)
+                              October 3, 2025
+
+ 
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+
+==================================================
+Running object 1 / 40: elliptic_0.25
+==================================================
+Starting parallel pool (parpool) using the 'Threads' profile ...
+Connected to parallel pool with 128 workers.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  9.126008e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  3.055406e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  3.177868e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  7.397727e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  3.362387e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  6.167744e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  3.140218e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  8.123117e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  3.926961e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  2.232508e-19.
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  3.100286e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  3.464727e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  6.232082e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  3.366689e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.194086e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.127163e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.334377e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  5.820775e-19.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  8.602484e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  9.793448e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  2.641849e-19.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  3.973211e-19.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  3.850008e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  3.579126e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  2.409313e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  9.348150e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  3.558951e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  3.994022e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  5.633605e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  2.338494e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.460771e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.005300e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  5.269594e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  9.935771e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  4.712091e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.128686e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.110397e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  9.033100e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.815372e-16.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  6.225570e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  3.397382e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  2.064667e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  7.905543e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  9.510493e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.018847e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  3.072320e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  2.647529e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.204772e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  4.102898e-18.
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  2.043366e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  3.389356e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  7.382791e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  6.189697e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  4.219353e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  7.968634e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  7.708573e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  9.530078e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.778233e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.685088e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  9.613741e-19.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  8.184986e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.137683e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  9.911443e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.000052e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  4.606218e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  2.020519e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  2.620650e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  9.412317e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  3.191423e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  2.434121e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.164536e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.228799e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  2.880437e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  2.503204e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  2.621354e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  4.400076e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  3.474202e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  6.608553e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.925808e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  3.529665e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.588274e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.144068e-16.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  3.297535e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.225765e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.427792e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.821097e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  3.641902e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.047505e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  2.106636e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  5.459392e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  3.171422e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  8.407775e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  4.756580e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.503995e-16.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.047858e-16.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  6.373444e-18.
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  4.166881e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  8.735111e-19.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.339300e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  4.085969e-19.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.815035e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.287191e-16.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.341094e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.546428e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.920200e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.219527e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.052303e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.024721e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  5.443564e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.337556e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.046414e-16.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.693009e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  4.617653e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  3.560331e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.923658e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  6.402690e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  6.598492e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  3.300976e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  2.723531e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  8.432420e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  8.611823e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  2.849126e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.181752e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.502378e-16.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.286724e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  4.359427e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.410868e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  6.289613e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.070273e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  8.437407e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  7.738284e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  4.795382e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.126463e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  2.729375e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.425885e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  6.028946e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  7.202728e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  7.297626e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.487727e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.215328e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.248483e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.635315e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  6.890044e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  5.168309e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.700882e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.810062e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.885269e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.472590e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.263764e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.118644e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  8.454438e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  5.745827e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.455702e-16.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  8.678599e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.546251e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  5.184678e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  3.012023e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.862064e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.428596e-16.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.278245e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.897763e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  3.147762e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  2.983340e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.289177e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  4.685319e-17.
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  4.378135e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.457265e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  8.427818e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  8.435126e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  8.144129e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.074961e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.082751e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  5.067848e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.266113e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.212309e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  6.315777e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  6.454189e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  5.596778e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  5.590653e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  8.655263e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.688473e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.576759e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.611108e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.884595e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  2.060163e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  2.670075e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.484386e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.047802e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  3.173137e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  2.080369e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.269913e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.266941e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  4.694530e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  5.305989e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.756946e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  2.223481e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.187640e-16.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.467539e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.428032e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.324059e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.168044e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  3.130762e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  2.152205e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  6.781040e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  9.636479e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  7.944440e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  5.339611e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.726947e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.082259e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.782570e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  5.775607e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  9.145073e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.457036e-16.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  3.650062e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  8.207377e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.792378e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  2.022852e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  4.257802e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  8.323909e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  5.470213e-19.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.083738e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.906505e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  8.107779e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  3.832865e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  6.202907e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.350793e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  9.903787e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.563580e-16.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  4.993182e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  7.227694e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  5.196772e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.384476e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.984783e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  4.213488e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  5.284082e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  6.834159e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.320627e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  4.674475e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.661489e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.711321e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  2.508547e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  6.504121e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  5.090525e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  7.671882e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  3.111653e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  4.678532e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.521642e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  2.756499e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  8.355809e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  3.985419e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  9.485581e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  9.558104e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.382075e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  3.976137e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  4.921683e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  8.538840e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  2.648104e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.713078e-16.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  9.772015e-18.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.551040e-16.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  2.223182e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  1.961189e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  8.019390e-17.
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate. RCOND =  6.332536e-18.
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  4.193710e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  3.403388e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  6.797586e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  4.122978e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  5.743491e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  6.181966e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.135142e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.706360e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.540164e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.642880e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.588754e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.310207e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  7.694933e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  4.652188e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  5.370237e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  8.483666e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  2.916744e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.988682e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  6.408843e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  6.740882e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  6.497329e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  8.685687e-19.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  2.517104e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  3.033683e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  3.313283e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  4.912959e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  8.229958e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  7.244241e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  8.918657e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  8.158240e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.897129e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  5.432151e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  9.428485e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  9.588893e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  2.785355e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.161184e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.989584e-16.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  8.480606e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.552576e-16.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  2.465740e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  2.269578e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  1.620458e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  7.923622e-17.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  2.667350e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  5.964156e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 17)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+[Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  4.620029e-18.] 
+[> In comp_poles>@(w)u*(lp.bie_mat(w)\v) (line 21)
+In sec_ref>@(z)1/f(z) (line 37)
+In secant_method (line 39)
+In sec_ref (line 37)
+In comp_poles (line 46)
+In data_gen_cavities (line 124)
+] 
+
+pol_comp_time =
+
+  182.4259
+
+
+LU_time_real_line =
+
+    2.9617
+
+
+LU_time_pols =
+
+    5.0886
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   17.8909
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   15.2875
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+starting freq sols
+starting time sols
+
+single_reciever_comp_time =
+
+   14.9748
+
+Starting with Res dens
+Starting Bkslow
+Starting Densitites
+Starting r res
+{Error using single_layer_far_field (line 10)
+RP single_layer_far_field: non unit input locations passed into the function
+
+Error in RP2LP/eval_far_field (line 89)
+            val = single_layer_far_field(density, xhat(1, :).', ...
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+} 
+>> Parallel pool using the 'Threads' profile is shutting down.

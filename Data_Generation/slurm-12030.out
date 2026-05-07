@@ -1,0 +1,19 @@
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2025 The MathWorks, Inc.
+             R2025b Update 1 (25.2.0.3042426) 64-bit (glnxa64)
+                              October 3, 2025
+
+ 
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+
+==================================================
+Running object 1 / 10: twinjet_plane1
+==================================================
+Starting parallel pool (parpool) using the 'Threads' profile ...
+Connected to parallel pool with 128 workers.
+double free or corruption (out)
+
+MATLAB is exiting because of fatal error
