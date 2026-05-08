@@ -46,7 +46,7 @@ function [usol, scatsol, smoothint, zeroint] = freq_to_time_zero(ps,lp,f_sols,k,
    
     parfor sind=1:ps.num_spat_pts
             % We test the distance so points inside the curve don't get evaluated.
-            if ps.is_far_field
+            if ps.is_far_field || ps.is_rp_curve
                 tt = 1
             elseif ps.is_open_curve
                 tt = Test_Distance(lp.curve,ps.xs(sind),ps.ys(sind));

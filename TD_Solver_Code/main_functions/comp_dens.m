@@ -13,7 +13,7 @@ function densities = comp_dens(ps,lp, L, U)
     use_LU = nargin == 4;
 
 
-    if ps.is_open_curve
+    if ps.is_open_curve || ps.is_rp_curve
         bndpts = [lp.curve.X, lp.curve.Y]';
     else
         bndpts = lp.curve.xs;

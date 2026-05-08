@@ -34,6 +34,8 @@ function ps = gen_params(varargin)
 %                  Note after parameters are initialized this will be a function not a string.
 % is_far_field: If true, the spatial evaluation points are assumed to be
 %               on the unit disk and the far field pattern is used. 
+% is_rp_curve  : If true use syntax from Vicente's rectangular polar
+%                method.
 % is_open_curve: If true use diffarcs, syntax, otherwise use curve syntax.
 % use_FC       : If true use and FC expansion for the integration step. DEPRECIATED: No more FC since window the subtraction
 %
@@ -104,6 +106,7 @@ ps.pou_name        = "erfc";
 ps.is_open_curve   = true;
 ps.n_eint          = 3000;
 ps.is_far_field    = false;
+ps.is_rp_curve     = false;
 
 %% Zero Frequency Content Parameters
 ps.w_c             = 1;
@@ -150,7 +153,7 @@ validKeys = ...
      'inc_field','w_0','sigmas','t_0','csupp', ... % Time domain
      'wimag','p_numx','p_numy','use_secant','sec_its','sec_tol', ... % pole finding
      'mmax','use_rec_alg','nscal','aaa_tol', ... % Residue and pole computation for aaa sv
-     'n_res_w','cont_rad','is_far_field'}; % Residue computation 
+     'n_res_w','cont_rad','is_far_field','is_rp_curve'}; % Residue computation 
 
 
 ii = 1;

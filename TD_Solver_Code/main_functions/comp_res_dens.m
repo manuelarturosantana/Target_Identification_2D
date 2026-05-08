@@ -20,7 +20,7 @@ function [res_dens] = comp_res_dens(ps, lp, pols, L, U)
     
     use_LU = nargin == 5;
 
-    if ps.is_open_curve
+    if ps.is_open_curve || ps.is_rp_curve
         bndpts = [lp.curve.X, lp.curve.Y]';
     else
         bndpts = lp.curve.xs;

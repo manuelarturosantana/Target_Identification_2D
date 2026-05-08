@@ -27,9 +27,10 @@ function f_sols = comp_freq_sols(ps,lp, densities, Bkslow, pols, r_res)
     % For each point in r
     % For loop indicies must be variables, note in a structure for par for.
      numk = ps.numk; numw = ps.numw;
-    parfor sind = 1:ps.num_spat_pts
+    % parfor sind = 1:ps.num_spat_pts
+    for sind = 1:ps.num_spat_pts
         xx=ps.xs(sind); yy=ps.ys(sind);
-            if ps.is_far_field
+            if ps.is_far_field || ps.is_rp_curve
                 tt = 1;
             elseif ps.is_open_curve
                 tt = Test_Distance(lp.curve,xx,yy);
@@ -42,6 +43,8 @@ function f_sols = comp_freq_sols(ps,lp, densities, Bkslow, pols, r_res)
                 
                 if ps.is_far_field
                     solw = lp.eval_far_field(ps.ws(wind),densities(:,wind),[xx;yy]);
+                elseif ps.is_rp_curve
+                    solw = single_layer_extern(densities(:,wind),xx, yy, lp.RP_Curve, ps.ws(wind));
                 elseif ps.is_open_curve
   
                     solw = Scattered_Field(densities(:,wind),[],xx,yy,lp.curve,...
