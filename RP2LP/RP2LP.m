@@ -6,13 +6,8 @@ classdef RP2LP
     % WARNING: This will only work with the time domain code for far field
     % evaluations and eigenvalue computations. 
     %
-    % To do the near field the following changes would need to be made:
-    % 1. Since other open curve code uses the Diffarcs Test_Distance
-    %    function a corresponding version of that function would have to be
-    %    implemented for the RP curves. (or just set to always return 1)
-    % 2. For same reason the a version of the Scattered_Field diffarcs
-    %    function would have to be changed for the near field evaluations.
-    %
+    % The near field is implemented, but not with testing if the point is 
+    % inside the region of interest or not.
 
     properties
         curve; % struct containing curve.X, curve.Y which give the global 
@@ -44,7 +39,7 @@ classdef RP2LP
             lp.RP_Curve = refine_curve_wavenumber(RP_Curve, 2*pi/params.k, ppwl);
 
             [xb, yb] = get_global_xy(lp.RP_Curve);
-            curve.X = xb; curve.Y = yb;
+            curve.X = xb; curve.Y = yb; curve.Flag = "vicente open";
             lp.curve = curve;          
         end
 

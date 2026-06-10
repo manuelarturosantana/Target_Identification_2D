@@ -34,6 +34,10 @@ function ps = init_params(ps)
         error("init_params: only one of xs and ys was passed in. Did you mean to specify both?")
     end
 
+    if (ps.is_open_curve && ps.is_rp_curve)
+        error("Curve specified as both an open curve (DIFFARCS solver) and Rectangular Polar Solver curve. Please only choose one")
+    end
+
     if isempty(ps.xs) && isempty(ps.ys)
         if (isempty(ps.xlims) || isempty(ps.ylims) || ps.numx == 0 || ps.numy == 0)
             error("init_params: xlims/ylims and numx/numy not fully specified")

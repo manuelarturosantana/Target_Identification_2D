@@ -25,7 +25,7 @@ function r_res = comp_r_res(ps,lp,pols,res_dens)
         f2 = @(z) 1 ./ (z - pols(pind));
         % Compute the value of the density at every point
         for sind = 1:num_spat_pts
-            if ps.is_far_field
+            if ps.is_far_field || ps.is_rp_curve
                 tt = 1;
             elseif ps.is_open_curve
                 tt = Test_Distance(lp.curve,ps.xs(sind),ps.xs(sind));
@@ -39,6 +39,8 @@ function r_res = comp_r_res(ps,lp,pols,res_dens)
             for cind = 1:length(circ)
                 if ps.is_far_field
                     fvals(cind) = lp.eval_far_field(circ(cind),res_dens(:,cind,pind), [ps.xs(sind);ps.ys(sind)]);
+                elseif ps.is_rp_curve
+                    fvals(cind) = single_layer_extern(res_dens(:,cind,pind),ps.xs(sind), ps.ys(sind), lp.RP_Curve, circ(cind));
                 elseif ps.is_open_curve
                     fvals(cind) = Scattered_Field(res_dens(:,cind,pind),[],ps.xs(sind),ps.ys(sind),...
                             lp.curve,circ(cind),'Dirichlet', 'None');
