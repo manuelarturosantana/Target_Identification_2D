@@ -1,7 +1,6 @@
 % Change these to match your paths. Note chebfun is needed for AAA
-addpath(genpath("/home/msantana/Progamming/rp2d_matlab"))
-addpath(genpath("/home/msantana/Progamming/Target_Identification_2D"))
-addpath(genpath("/home/msantana/Progamming/MATLAB_PACKAGES/chebfun"))
+addpath(genpath("C:\Users\vicen\Code\rp2d_matlab"))
+addpath(genpath("C:\Users\vicen\Code\Target_Identification_2D"))
 %%
 % Main parameters to play with
 w_0              = 2;             % The center frequency of the Gaussian
@@ -14,8 +13,8 @@ num_recievers_per_obs = 1;
 are_recivers_random = false;      % If true generate random angles
 angle1 = 2 * pi / 3; 
 angle2 = 2 * pi /3;                  % Angles in the far field to generate data
-wimag  = -0.3;                    % Compute poles with imaginary part larger than this value.
-save_data_dir = "/home/msantana/Progamming/Target_Identification_2D/"; % Make sure this ends with a /
+wimag  = -1.0;                    % Compute poles with imaginary part larger than this value.
+save_data_dir = "C:\Users\vicen\Code\Target_Identification_2D\"; % Make sure this ends with a /
 
 %% Specify the geometries and params
 all_geometries = {};
@@ -23,7 +22,7 @@ theta = pi/4;   % wing angle with fuselage
 r = 0.5;        % total length of horizontal stabilizer
 all_geometries{end+1} = stick_plane_geometry(theta, r);
 
-all_geometry_names = {"stick_plane"}; % Names of the geometry for saving
+all_geometry_names = {"plane"}; % Names of the geometry for saving
 
 params = build_params( ...
     'k', w_0 + freq_gauss_width, ...
