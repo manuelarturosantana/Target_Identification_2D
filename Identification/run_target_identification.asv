@@ -1,0 +1,15 @@
+
+% ---- user-defined parameters ----
+% replace with input folder
+input_folder = 'local/data_two_cavity_constellations_2d';
+outp
+
+% build params struct
+
+% load objects and spectral data (poles, time-domain signals)
+
+% cache matrices and SVDs used in GLRT computation (speeds up script)
+
+% for each time-domain signal, compute GLRT statistic on library, classify
+
+% save classification results

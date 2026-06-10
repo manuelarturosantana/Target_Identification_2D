@@ -18,7 +18,25 @@ function params = build_id_params(varargin)
 
 % Default values
 params = struct();
+
+% paths
+params.input_folder = 'local/data_two_cavity_constellations_2d';
+params.output_path = ['Identification/classification_results/' ...
+                      'constellation_results.mat'];
+
+% classification parameters
 params.late_time = 80.0;
+params.noise_sigmas = [1e-6, 1e-5, 1e-4, 1e-3, 1e-2, 1e-1];
+params.svd_tol = 1e-12;
+params.random_seed = 2026;
+
+% Representative signal used for SNR reporting.
+% Defaults mean: first object/configuration, first receiver.
+params.snr_object_name = "";
+params.snr_receiver_angle = [];
+
+% additional parameters
+params.show_progress = false;
 
 % Check name-value pair structure
 if mod(numel(varargin), 2) ~= 0
