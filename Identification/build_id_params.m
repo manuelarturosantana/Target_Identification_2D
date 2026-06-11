@@ -30,10 +30,20 @@ params.noise_sigmas = [1e-6, 1e-5, 1e-4, 1e-3, 1e-2, 1e-1];
 params.svd_tol = 1e-12;
 params.random_seed = 2026;
 
+% Other options are averaged, single_objected_averaged
+params.snr_report_type = "representative_object"; 
+% averaged:              means average_snr overall obstacles on a per_angle basis.
+%                        variance is also reported in this case
+% single_object_averaged: Average over one object. Variance is not
+%                         reported. In this case the field snr_object_name is used to 
+%                         choose which object should be averaged.
+
 % Representative signal used for SNR reporting.
 % Defaults mean: first object/configuration, first receiver.
 params.snr_object_name = "";
 params.snr_receiver_angle = [];
+
+
 
 % additional parameters
 params.show_progress = false;
@@ -64,4 +74,15 @@ for k = 1:2:numel(varargin)
     params.(name) = value;
 end
 
+% Validate snr_report_type
+
+stype = char(params.snr_report_type);
+% canonical options
+valid = {'averaged', 'single_object_averaged', ...
+         'representative_object'};
+if ~any(strcmp(stype, valid))
+    error("build_id_params:UnknownParameterValue", ...
+          "Unknown snr_report_type '%s'.", ...
+          stype);
+end
 end

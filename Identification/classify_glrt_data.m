@@ -150,7 +150,13 @@ function results = classify_glrt_data(data, model, params)
     results.trials = trials;
     results.objects = objects;
     results.scores = scores_all;
-    results.snr = compute_representative_snr(data, model, params);
+    if strcmp(params.snr_report_type, "representative_object")
+        results.snr = compute_representative_snr(data, model, params);
+    elseif strcmp(params.snr_report_type, "averaged")
+        results.snr = compute_average_snr(data, model, params);
+    else
+        error(params.snr_report_type + " is not an implemented report type")
+    end
     results.accuracy = mean(trials.correct);
 
 end
