@@ -34,9 +34,6 @@ params.random_seed = 2026;
 params.snr_report_type = "representative_object"; 
 % averaged:              means average_snr overall obstacles on a per_angle basis.
 %                        variance is also reported in this case
-% single_object_averaged: Average over one object. Variance is not
-%                         reported. In this case the field snr_object_name is used to 
-%                         choose which object should be averaged.
 
 % Representative signal used for SNR reporting.
 % Defaults mean: first object/configuration, first receiver.
@@ -78,7 +75,7 @@ end
 
 stype = char(params.snr_report_type);
 % canonical options
-valid = {'averaged', 'single_object_averaged', ...
+valid = {'averaged', ...
          'representative_object'};
 if ~any(strcmp(stype, valid))
     error("build_id_params:UnknownParameterValue", ...
