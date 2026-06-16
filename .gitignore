@@ -3,3 +3,7 @@ local/
 
 # ignore slurm logs
 Data_Generation/vicente/logs
+
+# ignore slurm files
+*.err
+*.out
