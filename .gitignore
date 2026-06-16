@@ -1,2 +1,5 @@
 # excluded folders
 local/
+
+# ignore slurm logs
+Data_Generation/vicente/logs
