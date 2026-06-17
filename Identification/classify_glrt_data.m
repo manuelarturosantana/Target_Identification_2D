@@ -3,14 +3,59 @@ function results = classify_glrt_data(data, model, params)
 %
 %   results = CLASSIFY_GLRT_DATA(data, model, params) classifies every
 %   receiver signal in data against every GLRT basis in model.
-%s
-%   The output intentionally stores only compact classification information:
-%   true labels, predicted labels, receiver indices, GLRT scores, object
-%   names/file paths, and representative SNR values.
+%
+%   Default behavior:
+%       If no classification map is attached to model, this function
+%       requires numel(data) == numel(model) and behaves as before.
+%
+%   Flexible behavior:
+%       If model(1).classification.true_to_library_map exists, then data
+%       may have a different length from model. The map determines which
+%       model/library predictions count as correct.
 
     rng(params.random_seed);
 
-    nobj = numel(data);
+    neval = numel(data);
+    nlib = numel(model);
+
+    has_classification_map = ...
+        isfield(model, 'classification') && ...
+        ~isempty(model(1).classification) && ...
+        isfield(model(1).classification, 'true_to_library_map');
+
+    if has_classification_map
+        true_to_library_map = logical(model(1).classification.true_to_library_map);
+
+        if ~isequal(size(true_to_library_map), [neval, nlib])
+            error('classify_glrt_data:BadTruthMapSize', ...
+                  ['model(1).classification.true_to_library_map must have ', ...
+                   'size numel(data)-by-numel(model), i.e. %d-by-%d.'], ...
+                  neval, nlib);
+        end
+
+        if isfield(model(1).classification, 'library_data')
+            library_data = model(1).classification.library_data;
+        else
+            error('classify_glrt_data:MissingLibraryData', ...
+                  ['Flexible classification requires ', ...
+                   'model(1).classification.library_data.']);
+        end
+
+        if numel(library_data) ~= nlib
+            error('classify_glrt_data:LibraryDataMismatch', ...
+                  'numel(model(1).classification.library_data) must equal numel(model).');
+        end
+    else
+        if neval ~= nlib
+            error('classify_glrt_data:LengthMismatch', ...
+                  ['numel(data) and numel(model) differ. ', ...
+                   'Attach model(1).classification.true_to_library_map first.']);
+        end
+
+        true_to_library_map = eye(neval, nlib) > 0;
+        library_data = data;
+    end
+
     sigmas = params.noise_sigmas(:);
     nsigma = numel(sigmas);
 
@@ -19,19 +64,19 @@ function results = classify_glrt_data(data, model, params)
     % Count total trials.
     ntrials_per_sigma = 0;
 
-    for j = 1:nobj
+    for j = 1:neval
         ntrials_per_sigma = ntrials_per_sigma + size(data(j).signals, 1);
     end
 
     ntrials = nsigma * ntrials_per_sigma;
 
     sigma_col = zeros(ntrials, 1);
-    true_idx = zeros(ntrials, 1);
-    pred_idx = zeros(ntrials, 1);
+    true_idx = zeros(ntrials, 1);      % index into data
+    pred_idx = zeros(ntrials, 1);      % index into model/library_data
     receiver_idx = zeros(ntrials, 1);
     score_max = zeros(ntrials, 1);
     correct = false(ntrials, 1);
-    scores_all = zeros(ntrials, nobj);
+    scores_all = zeros(ntrials, nlib);
 
     row = 0;
     start_time = tic;
@@ -44,7 +89,7 @@ function results = classify_glrt_data(data, model, params)
     for isig = 1:nsigma
         sigma = sigmas(isig);
 
-        for itrue = 1:nobj
+        for itrue = 1:neval
             signals = data(itrue).signals;
             nrec = size(signals, 1);
 
@@ -59,9 +104,9 @@ function results = classify_glrt_data(data, model, params)
                     f = f + noise;
                 end
 
-                scores = zeros(1, nobj);
+                scores = zeros(1, nlib);
 
-                for ipred = 1:nobj
+                for ipred = 1:nlib
                     Ur = model(ipred).Ur;
 
                     if size(Ur, 1) ~= numel(f)
@@ -78,7 +123,7 @@ function results = classify_glrt_data(data, model, params)
                 sigma_col(row) = sigma;
                 true_idx(row) = itrue;
                 receiver_idx(row) = irec;
-                correct(row) = pred_idx(row) == itrue;
+                correct(row) = true_to_library_map(itrue, pred_idx(row));
                 scores_all(row, :) = scores;
 
                 % Progress report.
@@ -109,6 +154,7 @@ function results = classify_glrt_data(data, model, params)
         fprintf('\n');
     end
 
+    % Preserve the original trials table fields.
     trials = table( ...
         sigma_col, ...
         true_idx, ...
@@ -124,15 +170,17 @@ function results = classify_glrt_data(data, model, params)
             'score_max', ...
             'correct'});
 
-    object_idx = (1:nobj).';
-    object_name = strings(nobj, 1);
-    file_name = strings(nobj, 1);
-    file_path = strings(nobj, 1);
+    % In the old path, this is exactly the old object table.
+    % In the flexible path, this is the prediction library.
+    object_idx = (1:nlib).';
+    object_name = strings(nlib, 1);
+    file_name = strings(nlib, 1);
+    file_path = strings(nlib, 1);
 
-    for j = 1:nobj
-        object_name(j) = data(j).name;
-        file_name(j) = data(j).file_name;
-        file_path(j) = data(j).file_path;
+    for j = 1:nlib
+        object_name(j) = library_data(j).name;
+        file_name(j) = library_data(j).file_name;
+        file_path(j) = library_data(j).file_path;
     end
 
     objects = table( ...
@@ -150,13 +198,45 @@ function results = classify_glrt_data(data, model, params)
     results.trials = trials;
     results.objects = objects;
     results.scores = scores_all;
+
     if strcmp(params.snr_report_type, "representative_object")
-        results.snr = compute_representative_snr(data, model, params);
+        results.snr = compute_representative_snr(library_data, model, params);
     elseif strcmp(params.snr_report_type, "averaged")
-        results.snr = compute_average_snr(data, model, params);
+        results.snr = compute_average_snr(library_data, model, params);
     else
         error(params.snr_report_type + " is not an implemented report type")
     end
+
     results.accuracy = mean(trials.correct);
+
+    % Only add extra bookkeeping in flexible mode.
+    % This avoids changing the old result structure.
+    if has_classification_map
+        eval_idx = (1:neval).';
+        eval_object_name = strings(neval, 1);
+        eval_file_name = strings(neval, 1);
+        eval_file_path = strings(neval, 1);
+
+        for j = 1:neval
+            eval_object_name(j) = data(j).name;
+            eval_file_name(j) = data(j).file_name;
+            eval_file_path(j) = data(j).file_path;
+        end
+
+        eval_objects = table( ...
+            eval_idx, ...
+            eval_object_name, ...
+            eval_file_name, ...
+            eval_file_path, ...
+            'VariableNames', { ...
+                'eval_idx', ...
+                'eval_object_name', ...
+                'eval_file_name', ...
+                'eval_file_path'});
+
+        results.eval_objects = eval_objects;
+        results.library_objects = objects;
+        results.true_to_library_map = true_to_library_map;
+    end
 
 end
