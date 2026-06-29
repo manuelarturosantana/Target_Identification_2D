@@ -7,3 +7,10 @@ Data_Generation/vicente/logs
 # ignore slurm files
 *.err
 *.out
+
+*.fig
+*.png
+*.txt
+
+.vscode
+*.mat

@@ -1,13 +1,12 @@
 % read_averaged_classification_results.m
 
-
+%%
 clear;
 
 results_file   = 'Identification/classification_results/plane_results_averaged.mat';
-objects_folder = '/scratch/msantana/plane_data_360';
 
-% for obstacle_idx = 1:10
-for obstacle_idx = 10
+for obstacle_idx = 1:10
+% for obstacle_idx = 1
 
 snr_mode = 'late'; % 'early' or 'late'
 show_legend = true;
@@ -73,12 +72,11 @@ hold off
 legend(legend_data,'Location','SouthEast','interpreter','latex')
 xlabel("Reciever Angle")
 ylabel("Late Time SNR")
+xlim([0,360])
 ax = gca; ax.set("Fontsize",15)
 grid on
 
 nexttile
-
-
 
 semilogx(sigmas, accuracy,'-o','linewidth',2)
 grid on
@@ -88,14 +86,44 @@ ax = gca; ax.set("FontSize",15)
 
 %%
 if obstacle_idx <= 5
-    fig_name = sprintf("twinjet_%d", obstacle_idx);
+    fig_name = sprintf("quadjet_%d", obstacle_idx);
 else
-    fig_name = sprintf("quadjet_%d", obstacle_idx - 5);
+    fig_name = sprintf("twinjet_%d", obstacle_idx - 5);
 end
 
 savefig("Plane_Classification_Figures/" + fig_name + ".fig");
 exportgraphics(fig, "Plane_Classification_Figures/" + fig_name + ".png")
 end
+
+return
+%% Bonus to figure out why the quadjet is miss classifying
+inds1 = trials.true_idx == 6;
+inds2 = trials.sigma == 1e-6;
+trials.pred_idx(inds1 & inds2)
+sum(trials.correct(inds1 & inds2)) / 360
+
+%%
+load('/scratch/msantana/plane_data_360/quadjet_plane3.mat')
+figure(1)
+clf
+plot(pols,'*')
+hold on
+load('/scratch/msantana/plane_data_360/twinjet_plane1.mat')
+plot(pols,'^')
+hold off
+
+%% No noise classification error
+indx = trials.sigma == 0;
+percent_correct = sum(trials.correct(indx)) / length(trials.correct(indx))
+
+%% Who mis classifies at 0?
+inds1 = trials.sigma == 0;
+inds2 = trials.correct == false;
+trials.true_idx(inds1 & inds2)
+trials.pred_idx(inds1 & inds2)
+mod(find(inds1 & inds2),360)
+
+%%
 %%
 function Curve = build_plane(idx)
     params = build_params( ...
@@ -109,15 +137,17 @@ function Curve = build_plane(idx)
     'p_edge', 2);
 
   
-
+    % Look at results.obstacles to see first its the quadjets, then its the
+    % twin jets
     if idx <= 5
         preset_name = sprintf("plane%d", idx);
-        gparams     = build_twinjet_params('preset', preset_name);
-        geometry    = twinjet_plane_geometry(gparams);
-    else
-        preset_name = sprintf("plane%d", idx - 5);
         gparams     = build_quadjet_params('preset', preset_name);
         geometry    = quadjet_plane_geometry(gparams);
+    else
+        preset_name = sprintf("plane%d", idx - 5);
+        gparams     = build_twinjet_params('preset', preset_name);
+        geometry    = twinjet_plane_geometry(gparams);
+   
     end
 
     Curve = build_curve(geometry, params);

@@ -43,7 +43,7 @@ psp = problem_data( ...
     'xs', 0, ...
     'ys', 0, ...
     't_0', t_offset);
-return
+
 
 % time interval and number of time samples
 lambda = (2 * pi) / wlims(2);
@@ -99,8 +99,8 @@ end
 % Run experiment
 % ------------------------------------------------------------
 start = tic;
-for ii = 9:10
-% for ii = 1:length(all_geometries)
+% for ii = 9:10
+for ii = 1:length(all_geometries)
     geom = all_geometries{ii};
 
     fprintf("\n==================================================\n");

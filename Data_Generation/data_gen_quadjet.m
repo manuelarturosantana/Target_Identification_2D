@@ -1,12 +1,15 @@
+% generates data for 5 quadjet
+% Now we use a refined curve to see if it makes the data better.
+
 % paths
-addpath(genpath("/home/vhojas/Code/rp2d_matlab/src"));
-addpath(genpath("/home/vhojas/Code/Target_Identification_2D"));
-addpath(genpath("/home/vhojas/chebfun"))
+addpath(genpath('/home/msantana/Progamming/rp2d_matlab/src'))
+addpath(genpath('/home/msantana/Progamming/Target_Identification_2D'))
+addpath(genpath('/home/msantana/Progamming/MATLAB_PACKAGES'))
 
 % ------------------------------------------------------------
 % Output directory
 % ------------------------------------------------------------
-save_data_dir = "/scratch/vhojas/data_cavities_2d";
+save_data_dir = "./plane_data";
 if ~exist(save_data_dir, "dir")
     mkdir(save_data_dir);
 end
@@ -14,20 +17,24 @@ end
 % ------------------------------------------------------------
 % Experiment params
 % ------------------------------------------------------------
-w_0              = 10;            % center frequency of the Gaussian
+w_0              = 50;            % center frequency of the Gaussian
 freq_gauss_width = 5;             % Gaussian frequency width
 gauss_picker_tol = 1e-10;         % Gaussian truncation tolerance
-numw             = 100;           % number of points for frequency integrals
+numw             = 400;           % number of points for frequency integrals
 t_end            = 400;           % final time
 t_offset         = 30;            % time offset
-num_receivers_per_obs = 2;
-are_recivers_random = true;
-angle1 = pi;
-angle2 = 2 * pi;
-wimag  = -0.5;
+num_receivers_per_obs = 359;
+are_recivers_random = false;
+
+% receiver angles
+angle1 = 0;
+angle2 = 2*pi - 0.0174533; % This ensures that we don't double count the 360 degrees
+
+wimag  = -0.3;
 
 % time-domain and AAA derived params
-[sigmas, wlims] = gauss_picker(w_0, freq_gauss_width, gauss_picker_tol);
+[sigmas, wlims] = gauss_picker(w_0, freq_gauss_width, ...
+    gauss_picker_tol);
 ws = linspace(wlims(1), wlims(2), 1000);
 psp = problem_data( ...
     'wlims', wlims, ...
@@ -36,6 +43,7 @@ psp = problem_data( ...
     'xs', 0, ...
     'ys', 0, ...
     't_0', t_offset);
+
 
 % time interval and number of time samples
 lambda = (2 * pi) / wlims(2);
@@ -50,34 +58,40 @@ params = build_params( ...
     'formulation', 'sl', ...
     'solver', 'direct', ...
     'delta', 0.05, ...
-    'npolar', 80, ...
-    'n', 12, ...
-    'p', 6, ...
+    'npolar', 160, ...
+    'n', 20, ...
+    'p', 3, ...
     'p_edge', 2);
 
 % ------------------------------------------------------------
 % Build all geometries
 % ------------------------------------------------------------
-openings = 0.25:0.25:5;
+num_presets = 5;
 
-all_geometries = cell(1, 2 * numel(openings));
-all_geometry_names = cell(1, 2 * numel(openings));
+all_geometries = cell(1, 2 * num_presets);
+all_geometry_names = cell(1, 2 * num_presets);
 
 idx = 1;
 
-for i = 1:numel(openings)
-    opening = openings(i);
+% twinjet presets
+% for i = 1:num_presets
+%     preset_name = sprintf("plane%d", i);
+%     gparams = build_twinjet_params('preset', preset_name);
+% 
+%     all_geometries{idx} = twinjet_plane_geometry(gparams);
+%     all_geometry_names{idx} = sprintf("twinjet_%s", preset_name);
+% 
+%     idx = idx + 1;
+% end
 
-    % elliptic cavity
-    all_geometries{idx} = ellipticcavity(2, 1, opening);
-    all_geometry_names{idx} = sprintf("elliptic_%0.2f", ...
-        opening);
-    idx = idx + 1;
+%quadjet presets
+for i = 1:num_presets
+    preset_name = sprintf("plane%d", i);
+    gparams = build_quadjet_params('preset', preset_name);
 
-    % circular cavity
-    all_geometries{idx} = circularcavity(1, opening);
-    all_geometry_names{idx} = sprintf("circular_%0.2f", ...
-        opening);
+    all_geometries{idx} = quadjet_plane_geometry(gparams);
+    all_geometry_names{idx} = sprintf("quadjet_%s", preset_name);
+
     idx = idx + 1;
 end
 
@@ -85,19 +99,29 @@ end
 % Run experiment
 % ------------------------------------------------------------
 start = tic;
-
-for ii = 1:length(all_geometries)
+for ii = 5:length(all_geometries)
     geom = all_geometries{ii};
 
     fprintf("\n==================================================\n");
-    fprintf("Running object %d / %d: %s\n", ii, length(all_geometries), ...
-        all_geometry_names{ii});
+    fprintf("Running object %d / %d: %s\n", ii, ...
+        length(all_geometries), all_geometry_names{ii});
     fprintf("==================================================\n");
+    
+    % Build a refined curve.
+    C = build_curve(geom, params);
+    C = refine_curve_wavenumber(C, 2*pi/params.k, 1);
+
+    for jj = 1:1
+        C = bisect_all_patches(C);
+        C = build_global_indexing(C);
+        C = get_close_points(C);
+    end
 
     lp = RP2LP(params, geom);
+    lp = lp.update_RP_Curve(C);
 
     % total number of points in the curve
-    N = lp.RP_Curve.global.N;
+    N = lp.RP_Curve.global.N
 
     % rule of thumb for computing complex resonances
     w_len = wlims(2) - wlims(1);
@@ -121,12 +145,15 @@ for ii = 1:length(all_geometries)
             'wimag', wimag, ...
             'N', N);
 
-        % pols_wp_loc = comp_poles(psp, lp);
-        % pols_wp_loc = sort(pols_wp_loc, "comparisonMethod", "real");
-        % pols_wp = [pols_wp; pols_wp_loc(:)];
+        pols_wp_loc = comp_poles(psp, lp);
+        pols_wp_loc = sort(pols_wp_loc, ...
+            "comparisonMethod", "real");
+        pols_wp = [pols_wp; pols_wp_loc(:)];
     end
-
     pol_comp_time = toc(pstart)
+   
+
+   
 
     % dummy problem for LU decompositions
     psp = problem_data( ...
@@ -139,12 +166,12 @@ for ii = 1:length(all_geometries)
         'N', N);
 
     tic
-    % [L_rl, U_rl] = comp_bie_LU(psp.ws, lp);
-    % LU_time_real_line = toc
+    [L_rl, U_rl] = comp_bie_LU(psp.ws, lp);
+    LU_time_real_line = toc
 
-    % tic
-    % [L_pole, U_pole] = comp_pole_LU(psp, lp, pols_wp);
-    % LU_time_pols = toc
+    tic
+    [L_pole, U_pole] = comp_pole_LU(psp, lp, pols_wp);
+    LU_time_pols = toc
 
     if are_recivers_random
         [xs, ys] = ff_points_random(angle1, angle2, ...
@@ -156,6 +183,7 @@ for ii = 1:length(all_geometries)
 
     uff_all = [];
     r_res_all = [];
+    f_sols_all = [];
 
     for rind = 1:num_receivers_per_obs
         x = xs(rind);
@@ -175,16 +203,19 @@ for ii = 1:length(all_geometries)
             'is_far_field', true, ...
             'xs', x, ...
             'ys', y);
+
         tic
-        % [uff, ~, r_res] = cts_wpols_LU(psp, lp, pols_wp, ...
-        %     L_rl, U_rl, L_pole, U_pole);
-        % single_reciever_comp_time = toc
+        [uff, scat_sol, r_res, ~, smoothint, f_sols, zeroint] = cts_wpols_LU(psp, lp, pols_wp, ...
+            L_rl, U_rl, L_pole, U_pole);
+        single_reciever_comp_time = toc
 
         uff = uff(:).';
         r_res = r_res(:).';
+        f_sols = f_sols(:).';
 
         uff_all = [uff_all; uff];
         r_res_all = [r_res_all; r_res];
+        f_sols_all = [f_sols_all; f_sols];
     end
 
     ts = psp.ts;
@@ -192,9 +223,12 @@ for ii = 1:length(all_geometries)
     curveY = lp.curve.Y;
     pols = pols_wp;
 
+        
+    config_name = all_geometry_names{ii};
+    receiver_angles = linspace(angle1, angle2, num_receivers_per_obs);
     save(fullfile(save_data_dir, all_geometry_names{ii} + ".mat"), ...
         "r_res_all", "uff_all", "pols", "ts", "xs", "ys", ...
-        "curveX", "curveY");
+        "curveX", "curveY","f_sols_all","psp","config_name","receiver_angles");
 end
 
 total_time = toc(start)

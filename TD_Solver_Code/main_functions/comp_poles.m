@@ -29,7 +29,8 @@ function [pols,errs,nfevals] = comp_poles(ps, lp, plot_poles)
         rlims = [ps.wlims(1), ps.wlims(2)];
     end
 
-    rp = rec_params('xlims',rlims,'ylims',[ps.wimag,0],'ntb',ps.p_numy,'nlr',ps.p_numx,"plotls",plot_poles);
+    rp = rec_params('xlims',rlims,'ylims',[ps.wimag,0],'ntb',ps.p_numy,'nlr', ...
+        ps.p_numx,"plotls",plot_poles, 'aaa_tol',ps.aaa_tol,'aaa_ctol',ps.aaa_tol);
     pols = aaa_recursive(f,rp);
     
 
@@ -40,7 +41,12 @@ function [pols,errs,nfevals] = comp_poles(ps, lp, plot_poles)
         plot(pols,'*')
         hold off
     end
-        
+    
+    disp("Poles before secant refinement")
+    format long
+    pols_before_ref = pols
+
+
     % If computing power allows, refine each pol approximation with a secant method or localized AAA
     if ps.use_secant
         [pols, errs, nfevals_s] = sec_ref(f,pols,ps.sec_its,ps.sec_tol);

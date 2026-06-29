@@ -26,7 +26,14 @@ yshifts = {[2.6, 5], [0, 2.4], [0, 0], [2.5, 4.8], [0]};
 
 constellation_names = {"snowman","triangle","line","diagonal","two_far"};
 
+for sind = 1:length(constellation_names)
+    figure(sind)
+    clf
+    [lp, mc] = setup_constellation(curve, xshifts{sind},yshifts{sind}, true);
+end
+return
 
+%%
 %% Visual Sanity Check that you have picked good incident and time domain
 % field parameters.
 [sigmas,wlims] = gauss_picker(w_0,freq_gauss_width,gauss_picker_tol);

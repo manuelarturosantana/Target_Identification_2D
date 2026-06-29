@@ -18,12 +18,12 @@ function [poles, lp, mc] = compute_constellation_evals(curve, xshift,yshift,rp, 
     [lp, mc] = setup_constellation(curve, xshift, yshift, draw_constellation);
 
 
-    N_total = (length(xshift) + 1) * curve.N;
-
-    v = randn(N_total,1); u = rand(1,N_total);
-
-    f = @(k) u * (lp.bie_mat(k) \ v);
-
-    poles = aaa_recursive(f,rp);
+    % N_total = (length(xshift) + 1) * curve.N;
+    % 
+    % v = randn(N_total,1); u = rand(1,N_total);
+    % 
+    % f = @(k) u * (lp.bie_mat(k) \ v);
+    % 
+    % poles = aaa_recursive(f,rp);
 
 end

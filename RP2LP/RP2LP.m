@@ -43,6 +43,13 @@ classdef RP2LP
             lp.curve = curve;          
         end
 
+        function lp = update_RP_Curve(lp,new_RP_Curve)
+            lp.RP_Curve = new_RP_Curve;
+
+            [xb, yb] = get_global_xy(lp.RP_Curve);
+            lp.curve.X = xb; lp.curve.Y = yb; lp.curve.Flag = "vicente open"; 
+        end
+
         function mat = bie_mat(lp, k)
             lp.params.k = k;
             mat = single_layer_mat(lp.RP_Curve, lp.params);
