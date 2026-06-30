@@ -31,11 +31,7 @@ function model = build_glrt_model(data, params)
     for j = 1:nobj
         poles = data(j).poles(:).';
         
-        % Use of real data means we just use the signs and cosines.
-        decay = imag(poles); osc = real(poles);
-        Zc = (exp(tt(:) * decay)) .* cos(tt(:) * osc);
-        Zs = (exp(tt(:) * decay)) .* sin(tt(:) * osc);
-        Z = [Zc, Zs];
+        decay = 
         % Z = exp(-1i * tt(:) * poles);
 
         [U, S, ~] = svd(Z, 'econ');
