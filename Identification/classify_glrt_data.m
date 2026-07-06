@@ -103,6 +103,9 @@ function results = classify_glrt_data(data, model, params)
                         (randn(size(f)) + 1i * randn(size(f)));
                     f = f + noise;
                 end
+                
+                %% NEW F DATA
+                f = real(f);
 
                 scores = zeros(1, nlib);
 

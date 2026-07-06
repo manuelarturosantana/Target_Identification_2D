@@ -13,7 +13,22 @@ max(abs(r_res_all))
 
 figure(2)
 clf
-plot(real(uff_all(rec_ind,:)))
+plot(ts, real(uff_all(rec_ind,:)))
+hold on
+
+ ps2 = psp;
+ps2.ws = pols; ps2.numw = length(pols);
+
+bk_slow_pols = comp_bkslow(ps2,true);
+% Multiply by the recentering term to compute the correct residue
+bk_slow_pols = bk_slow_pols;
+% We get the residue we need the contribution from B_k as it limits to
+% the pole, and then add all the windows the windows together.
+% Make it a column vector
+bk_slow_pols = sum(bk_slow_pols,1);
+
+plot(ts, real(-1i * bk_slow_pols * r_res_all(rec_ind) * exp(-1i *pols * (psp.ts - psp.t_0))))
+hold off
 
 
 
