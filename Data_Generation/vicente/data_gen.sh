@@ -8,16 +8,31 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=128
+#SBATCH --mem=1000G
+#SBATCH --array=1-26%1
 
-# CHANGE IF CLONED: folder where the MATLAB script lives.
 #SBATCH --chdir=/home/vhojas/Code/Target_Identification_2D/Data_Generation/vicente
-
-# CHANGE IF CLONED: folder where SLURM logs should be written.
-#SBATCH --output=/home/vhojas/Code/Target_Identification_2D/Data_Generation/vicente/logs/constellations_%j.out
-#SBATCH --error=/home/vhojas/Code/Target_Identification_2D/Data_Generation/vicente/logs/constellations_%j.err
+#SBATCH --output=/home/vhojas/Code/Target_Identification_2D/Data_Generation/vicente/logs/constellations_%A_%a.out
+#SBATCH --error=/home/vhojas/Code/Target_Identification_2D/Data_Generation/vicente/logs/constellations_%A_%a.err
 
 module load matlab
 
-# CHANGE IF CLONED: MATLAB script name, without ".m".
-matlab -nodisplay -nosplash -nodesktop -nojvm \
-    -r "data_gen_constellation; exit"
+status_dir=/home/vhojas/Code/Target_Identification_2D/Data_Generation/vicente/logs/status
+mkdir -p "$status_dir"
+
+echo "Starting config ${SLURM_ARRAY_TASK_ID}"
+
+matlab -nodisplay -nosplash -nodesktop -nojvm -singleCompThread \
+    -batch "data_gen_constellation"
+
+exit_code=$?
+
+if [ $exit_code -eq 0 ]; then
+    echo "DONE config ${SLURM_ARRAY_TASK_ID}" \
+        > "${status_dir}/config_${SLURM_ARRAY_TASK_ID}.done"
+else
+    echo "FAILED config ${SLURM_ARRAY_TASK_ID} with exit code ${exit_code}" \
+        > "${status_dir}/config_${SLURM_ARRAY_TASK_ID}.failed"
+fi
+
+exit 0
