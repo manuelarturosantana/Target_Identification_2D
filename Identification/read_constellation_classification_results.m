@@ -1,524 +1,384 @@
-% plot_target_identification_constellation.m
+% read_constellation_classification_results.m
 %
-% Read and plot four-method GLRT constellation classification results.
-%
-% Plots:
-%   1. Accuracy versus sigma.
-%   2. Accuracy versus representative SNR, if compatible SNR data exists.
-%   3. Object/constellation shape gallery.
+% Read and summarize constellation classification results.
 
 clear
 clc
 
 % ---- user-defined parameters ----
+
 results_path = fullfile( ...
     'Identification', ...
     'classification_results', ...
-    'constellation_four_methods_results.mat');
+    'single_poles_constellation_results.mat');
 
-plot_output_folder = fullfile( ...
-    'Identification', ...
-    'classification_results', ...
-    'figures_four_methods');
+% Empty means use all sigmas.
+% Example: sigma_to_plot = 1e-4;
+sigma_to_plot = [];
 
-save_figures = true;
+make_plots = true;
 
-% Shape plotting.
-plot_all_shapes = true;
-
-if ~exist(plot_output_folder, 'dir')
-    mkdir(plot_output_folder);
-end
+% ---------------------------------
 
 S = load(results_path, 'results');
 results = S.results;
 
-params = results.params;
-sigmas = params.noise_sigmas(:);
+trials = results.trials;
 
-method_fields = [
-    "method_full_naive"
-    "method_remove_permutations"
-    "method_object_multiset"
-    "method_single_poles"
-];
-
-method_labels = [
-    "1. Full naive"
-    "2. Remove permutations"
-    "3. Remove geometry"
-    "4. Single poles"
-];
-
-plot_styles = [
-    "o-"
-    "s-"
-    "^-"
-    "d-"
-];
-
-% ============================================================
-% FIGURE 1: ACCURACY VS SIGMA WITH SNR TOP AXIS
-% ============================================================
-
-% Choose which SNR to display on the top x-axis.
-% Options:
-%   "snr_late_db"
-%   "snr_full_db"
-snr_field = "snr_late_db";
-
-% Title position control.
-% title_pos = [x_center, y_bottom]
-%
-% Increase title_pos(1) -> move title right.
-% Decrease title_pos(1) -> move title left.
-% Increase title_pos(2) -> move title up.
-% Decrease title_pos(2) -> move title down.
-title_pos = [0.50, 0.94];
-
-figure(1)
-clf
-hold on
-box on
-grid on
-
-for imethod = 1:numel(method_fields)
-    method_result = results.(method_fields(imethod));
-    acc = get_accuracy_vector(method_result, sigmas);
-
-    plot_sigma_accuracy( ...
-        sigmas, ...
-        acc, ...
-        plot_styles(imethod), ...
-        method_labels(imethod));
-end
-
-xlabel('\sigma')
-ylabel('Classification accuracy')
-legend('Location', 'best')
-ylim([0, 1.05])
-set(gca, 'XScale', 'log')
-
-ax_bottom = gca;
-
-% Main axes position:
-% [left, bottom, width, height]
-%
-% This controls the plot box, not the title.
-% Reduce height if the top SNR axis overlaps the title.
-ax_bottom.Position = [0.13, 0.14, 0.78, 0.64];
-
-fix_zero_sigma_axis(ax_bottom, sigmas)
-
-add_snr_top_axis( ...
-    ax_bottom, ...
-    sigmas, ...
-    results.method_full_naive.snr, ...
-    snr_field);
-
-% Figure-level title.
-% title_pos = [x_center, y_center]
-%
-% Increase title_pos(1) -> move title right.
-% Decrease title_pos(1) -> move title left.
-% Increase title_pos(2) -> move title up.
-% Decrease title_pos(2) -> move title down.
-title_pos = [0.50, 0.90];
-
-title_width = 0.50;
-title_height = 0.04;
-
-annotation('textbox', ...
-    [title_pos(1) - title_width/2, ...
-     title_pos(2) - title_height/2, ...
-     title_width, ...
-     title_height], ...
-    'String', 'GLRT classification accuracy', ...
-    'EdgeColor', 'none', ...
-    'HorizontalAlignment', 'center', ...
-    'VerticalAlignment', 'middle', ...
-    'FontWeight', 'bold');
-
-if save_figures
-    exportgraphics(gcf, fullfile(plot_output_folder, 'accuracy_vs_sigma_snr.png'), ...
-        'Resolution', 200);
-end
-
-% ============================================================
-% FIGURE 3: SHAPE GALLERY
-% ============================================================
-
-shape_info = results.shape_info;
-
-if plot_all_shapes
-    plot_shape_gallery(shape_info, "All object and constellation shapes");
-    fig_name = 'all_shapes.png';
+if isfield(results, 'eval_objects')
+    eval_objects = results.eval_objects;
 else
-    keep = representative_shape_mask(shape_info);
-    plot_shape_gallery(shape_info(keep), "Representative object shapes");
-    fig_name = 'representative_shapes.png';
+    eval_objects = results.objects;
 end
 
-if save_figures
-    exportgraphics(gcf, fullfile(plot_output_folder, fig_name), ...
-        'Resolution', 200);
+if isfield(results, 'library_objects')
+    library_objects = results.library_objects;
+else
+    library_objects = results.objects;
 end
 
-fprintf('\nSaved plots to:\n  %s\n', plot_output_folder);
+fprintf('\nLoaded results from:\n  %s\n', results_path);
 
-% ============================================================
-% LOCAL HELPERS
-% ============================================================
+if isfield(results, 'method_name')
+    fprintf('\nMethod: %s\n', results.method_name);
+end
 
-function acc = get_accuracy_vector(method_result, sigmas)
-    if isfield(method_result, 'accuracy_by_sigma')
-        acc = method_result.accuracy_by_sigma(:);
-    elseif isfield(method_result, 'trials')
-        acc = infer_accuracy_by_sigma(method_result.trials, sigmas);
-    else
-        error('Method result has neither accuracy_by_sigma nor trials field.');
+if isfield(results, 'method_description')
+    fprintf('%s\n', results.method_description);
+end
+
+fprintf('\nOverall accuracy: %.4f\n', mean(trials.correct));
+
+fprintf('\nAccuracy by sigma:\n');
+acc_by_sigma = accuracy_by_sigma_table(trials);
+disp(acc_by_sigma);
+
+fprintf('\nAccuracy by true configuration:\n');
+acc_by_config = accuracy_by_true_config_table(trials, eval_objects);
+disp(acc_by_config);
+
+fprintf('\nAccuracy by object type:\n');
+acc_by_type = accuracy_by_object_type_table(trials, eval_objects);
+disp(acc_by_type);
+
+fprintf('\nAccuracy by number of objects:\n');
+acc_by_nobj = accuracy_by_num_objects_table(trials, eval_objects);
+disp(acc_by_nobj);
+
+fprintf('\nPrediction counts:\n');
+pred_counts = prediction_count_table(trials, library_objects);
+disp(pred_counts);
+
+if ~isempty(sigma_to_plot)
+    mask = trials.sigma == sigma_to_plot;
+
+    if ~any(mask)
+        error('Requested sigma_to_plot = %g was not found.', sigma_to_plot);
     end
-
-    if numel(acc) ~= numel(sigmas)
-        error('Accuracy vector length does not match number of sigmas.');
-    end
+else
+    mask = true(height(trials), 1);
 end
 
-function acc = infer_accuracy_by_sigma(trials, sigmas)
-    acc = zeros(numel(sigmas), 1);
+fprintf('\nConfusion table');
+if ~isempty(sigma_to_plot)
+    fprintf(' for sigma = %g', sigma_to_plot);
+end
+fprintf(':\n');
+
+conf = confusion_table(trials(mask, :), eval_objects, library_objects);
+disp(conf);
+
+if make_plots
+    plot_accuracy_by_sigma(acc_by_sigma);
+    plot_accuracy_by_num_objects(acc_by_nobj);
+end
+
+function acc = accuracy_by_sigma_table(trials)
+%ACCURACY_BY_SIGMA_TABLE  Compute accuracy grouped by sigma.
+
+    sigmas = unique(trials.sigma, 'stable');
+    accuracy = zeros(numel(sigmas), 1);
+    ntrials = zeros(numel(sigmas), 1);
 
     for isig = 1:numel(sigmas)
         mask = trials.sigma == sigmas(isig);
-        acc(isig) = mean(trials.correct(mask));
+        accuracy(isig) = mean(trials.correct(mask));
+        ntrials(isig) = nnz(mask);
     end
+
+    acc = table( ...
+        sigmas, ...
+        accuracy, ...
+        ntrials, ...
+        'VariableNames', { ...
+            'sigma', ...
+            'accuracy', ...
+            'ntrials'});
 end
 
-function plot_sigma_accuracy(sigmas, acc, style, label)
-%PLOT_SIGMA_ACCURACY
-%   Plot accuracy versus sigma, including sigma = 0.
+function acc = accuracy_by_true_config_table(trials, eval_objects)
+%ACCURACY_BY_TRUE_CONFIG_TABLE  Compute accuracy grouped by true config.
+
+    true_ids = unique(trials.true_idx, 'stable');
+
+    true_name = strings(numel(true_ids), 1);
+    accuracy = zeros(numel(true_ids), 1);
+    ntrials = zeros(numel(true_ids), 1);
+
+    for ii = 1:numel(true_ids)
+        id = true_ids(ii);
+        mask = trials.true_idx == id;
+
+        true_name(ii) = get_eval_name(eval_objects, id);
+        accuracy(ii) = mean(trials.correct(mask));
+        ntrials(ii) = nnz(mask);
+    end
+
+    acc = table( ...
+        true_ids, ...
+        true_name, ...
+        accuracy, ...
+        ntrials, ...
+        'VariableNames', { ...
+            'true_idx', ...
+            'true_name', ...
+            'accuracy', ...
+            'ntrials'});
+end
+
+function acc = accuracy_by_object_type_table(trials, eval_objects)
+%ACCURACY_BY_OBJECT_TYPE_TABLE  Compute accuracy grouped by circ/ell type.
+
+    true_type = strings(height(trials), 1);
+
+    for ii = 1:height(trials)
+        name = get_eval_name(eval_objects, trials.true_idx(ii));
+        true_type(ii) = get_object_type_from_name(name);
+    end
+
+    types = unique(true_type, 'stable');
+
+    accuracy = zeros(numel(types), 1);
+    ntrials = zeros(numel(types), 1);
+
+    for itype = 1:numel(types)
+        mask = true_type == types(itype);
+        accuracy(itype) = mean(trials.correct(mask));
+        ntrials(itype) = nnz(mask);
+    end
+
+    acc = table( ...
+        types, ...
+        accuracy, ...
+        ntrials, ...
+        'VariableNames', { ...
+            'object_type', ...
+            'accuracy', ...
+            'ntrials'});
+end
+
+function acc = accuracy_by_num_objects_table(trials, eval_objects)
+%ACCURACY_BY_NUM_OBJECTS_TABLE  Compute accuracy grouped by constellation size.
+
+    num_objects = zeros(height(trials), 1);
+
+    for ii = 1:height(trials)
+        name = get_eval_name(eval_objects, trials.true_idx(ii));
+        num_objects(ii) = get_num_objects_from_name(name);
+    end
+
+    nvals = unique(num_objects, 'stable');
+
+    accuracy = zeros(numel(nvals), 1);
+    ntrials = zeros(numel(nvals), 1);
+
+    for ii = 1:numel(nvals)
+        mask = num_objects == nvals(ii);
+        accuracy(ii) = mean(trials.correct(mask));
+        ntrials(ii) = nnz(mask);
+    end
+
+    acc = table( ...
+        nvals, ...
+        accuracy, ...
+        ntrials, ...
+        'VariableNames', { ...
+            'num_objects', ...
+            'accuracy', ...
+            'ntrials'});
+end
+
+function counts = prediction_count_table(trials, library_objects)
+%PREDICTION_COUNT_TABLE  Count predictions by library object.
+
+    pred_ids = unique(trials.pred_idx, 'stable');
+
+    pred_name = strings(numel(pred_ids), 1);
+    count = zeros(numel(pred_ids), 1);
+    fraction = zeros(numel(pred_ids), 1);
+
+    for ii = 1:numel(pred_ids)
+        id = pred_ids(ii);
+        mask = trials.pred_idx == id;
+
+        pred_name(ii) = get_library_name(library_objects, id);
+        count(ii) = nnz(mask);
+        fraction(ii) = count(ii) / height(trials);
+    end
+
+    counts = table( ...
+        pred_ids, ...
+        pred_name, ...
+        count, ...
+        fraction, ...
+        'VariableNames', { ...
+            'pred_idx', ...
+            'pred_name', ...
+            'count', ...
+            'fraction'});
+end
+
+function conf = confusion_table(trials, eval_objects, library_objects)
+%CONFUSION_TABLE  Count true configuration versus predicted library class.
+
+    true_ids = unique(trials.true_idx, 'stable');
+    pred_ids = unique(trials.pred_idx, 'stable');
+
+    true_names = strings(numel(true_ids), 1);
+    pred_names = strings(numel(pred_ids), 1);
+
+    for ii = 1:numel(true_ids)
+        true_names(ii) = get_eval_name(eval_objects, true_ids(ii));
+    end
+
+    for jj = 1:numel(pred_ids)
+        pred_names(jj) = get_library_name(library_objects, pred_ids(jj));
+    end
+
+    counts = zeros(numel(true_ids), numel(pred_ids));
+
+    for ii = 1:numel(true_ids)
+        for jj = 1:numel(pred_ids)
+            counts(ii, jj) = nnz( ...
+                trials.true_idx == true_ids(ii) & ...
+                trials.pred_idx == pred_ids(jj));
+        end
+    end
+
+    conf = array2table(counts, ...
+        'VariableNames', matlab.lang.makeValidName(pred_names), ...
+        'RowNames', cellstr(true_names));
+end
+
+function plot_accuracy_by_sigma(acc_by_sigma)
+%PLOT_ACCURACY_BY_SIGMA  Plot accuracy versus sigma.
 %
-%   Since zero cannot be shown on a log scale, sigma = 0 is placed at
-%   min_positive_sigma / 10 and relabeled as 0 by fix_zero_sigma_axis.
+%   sigma = 0 is plotted manually one log-step to the left of the smallest
+%   positive sigma. Its y-value is the actual accuracy for sigma = 0.
 
-    sigmas = sigmas(:);
-    acc = acc(:);
+    sigmas = acc_by_sigma.sigma(:);
+    accuracy = acc_by_sigma.accuracy(:);
 
-    pos = sigmas > 0;
+    zero_mask = sigmas == 0;
+    pos_mask = sigmas > 0;
 
-    if any(sigmas == 0) && any(pos)
-        sigma_min = min(sigmas(pos));
-        sigma_plot = sigmas;
-        sigma_plot(sigmas == 0) = sigma_min / 10;
+    sigmas_pos = sigmas(pos_mask);
+    accuracy_pos = accuracy(pos_mask);
+
+    [sigmas_pos, idx] = sort(sigmas_pos);
+    accuracy_pos = accuracy_pos(idx);
+
+    if any(zero_mask)
+        accuracy_zero = accuracy(find(zero_mask, 1, 'first'));
+
+        if numel(sigmas_pos) < 2
+            error('Need at least two positive sigma values to place sigma = 0.');
+        end
+
+        % Place sigma = 0 one equal log-step to the left.
+        sigma_zero_plot = sigmas_pos(1)^2 / sigmas_pos(2);
+
+        xplot = [sigma_zero_plot; sigmas_pos];
+        yplot = [accuracy_zero; accuracy_pos];
+
+        xticks_vals = xplot;
+        xticks_labels = ["0"; string(sigmas_pos)];
     else
-        sigma_plot = sigmas;
+        xplot = sigmas_pos;
+        yplot = accuracy_pos;
+
+        xticks_vals = xplot;
+        xticks_labels = string(sigmas_pos);
     end
-
-    plot(sigma_plot, acc, style, ...
-        'LineWidth', 1.5, ...
-        'MarkerSize', 7, ...
-        'DisplayName', label);
-end
-
-function fix_zero_sigma_axis(ax, sigmas)
-    sigmas = sigmas(:);
-    pos = sigmas > 0;
-
-    if ~any(sigmas == 0) || ~any(pos)
-        return
-    end
-
-    sigma_min = min(sigmas(pos));
-    sigma_max = max(sigmas(pos));
-    sigma_zero_plot = sigma_min / 10;
-
-    xlim(ax, [sigma_zero_plot / 1.5, sigma_max * 1.5])
-
-    ticks = [sigma_zero_plot; sigmas(pos)];
-    tick_labels = strings(size(ticks));
-
-    tick_labels(1) = "0";
-
-    for ii = 2:numel(ticks)
-        tick_labels(ii) = sprintf('%.0e', ticks(ii));
-    end
-
-    xticks(ax, ticks)
-    xticklabels(ax, tick_labels)
-end
-
-function snr_vec = get_snr_vector(method_result, sigmas)
-%GET_SNR_VECTOR
-%   Try to extract a compatible SNR vector from method_result.snr.
-%
-%   This is intentionally tolerant because compute_representative_snr may
-%   return different field names depending on your local version.
-
-    snr_vec = [];
-
-    if ~isfield(method_result, 'snr')
-        return
-    end
-
-    s = method_result.snr;
-
-    candidate_fields = [
-        "late_time_snr"
-        "snr_late_time"
-        "late_snr"
-        "SNR_late_time"
-        "snr"
-    ];
-
-    if isstruct(s)
-        for ii = 1:numel(candidate_fields)
-            f = candidate_fields(ii);
-
-            if isfield(s, f)
-                candidate = s.(f);
-                candidate = candidate(:);
-
-                if numel(candidate) == numel(sigmas)
-                    snr_vec = candidate;
-                    return
-                end
-            end
-        end
-    elseif isnumeric(s)
-        candidate = s(:);
-
-        if numel(candidate) == numel(sigmas)
-            snr_vec = candidate;
-            return
-        end
-    end
-end
-
-function keep = representative_shape_mask(shape_info)
-    names = arrayfun(@(s) string(s.name), shape_info);
-
-    keep = false(size(names));
-
-    wanted = [
-        "single_circ_o050"
-        "single_ell_o075"
-        "same_dir_same_obj_aligned_circ_o050_circ_o050"
-        "same_dir_same_obj_aligned_ell_o075_ell_o075"
-        "same_dir_diff_obj_aligned_circ_o050_ell_o075"
-        "facing_diff_obj_aligned_circ_o050_ell_o075"
-    ];
-
-    for ii = 1:numel(wanted)
-        keep = keep | names == wanted(ii);
-    end
-end
-
-function plot_shape_gallery(shape_info, fig_title)
-    nshape = numel(shape_info);
-
-    if nshape == 0
-        error('No shape_info entries to plot.');
-    end
-
-    ncols = ceil(sqrt(nshape));
-    nrows = ceil(nshape / ncols);
 
     figure
-    clf
+    semilogx(xplot, yplot, '-o')
+    grid on
+    xlabel('\sigma')
+    ylabel('accuracy')
+    title('Classification accuracy by noise level')
 
-    for ii = 1:nshape
-        subplot(nrows, ncols, ii)
-        hold on
-        box on
-        axis equal
-
-        x = shape_info(ii).curveX;
-        y = shape_info(ii).curveY;
-
-        if isempty(x) || isempty(y)
-            title(strrep(string(shape_info(ii).name), '_', '\_'), ...
-                'Interpreter', 'tex', ...
-                'FontSize', 8);
-            text(0.5, 0.5, 'No curve data', ...
-                'HorizontalAlignment', 'center');
-            axis off
-            continue
-        end
-
-        plot_curve_data(x, y)
-
-        title(strrep(string(shape_info(ii).name), '_', '\_'), ...
-            'Interpreter', 'tex', ...
-            'FontSize', 8);
-
-        xlabel('x')
-        ylabel('y')
-    end
-
-    sgtitle(fig_title)
+    xticks(xticks_vals)
+    xticklabels(xticks_labels)
 end
 
-function plot_curve_data(x, y)
-%PLOT_CURVE_DATA
-%   Plot curve data without fake connections.
-%
-%   This prevents MATLAB from drawing artificial lines between different
-%   objects or across cavity openings.
+function plot_accuracy_by_num_objects(acc_by_nobj)
+%PLOT_ACCURACY_BY_NUM_OBJECTS  Plot accuracy versus constellation size.
 
-    if isempty(x) || isempty(y)
-        return
-    end
-
-    if iscell(x)
-        for kk = 1:numel(x)
-            plot_curve_vector_segmented(x{kk}, y{kk});
-        end
-        return
-    end
-
-    if isvector(x)
-        plot_curve_vector_segmented(x(:), y(:));
-        return
-    end
-
-    if ismatrix(x)
-        for kk = 1:size(x, 2)
-            plot_curve_vector_segmented(x(:, kk), y(:, kk));
-        end
-        return
-    end
-
-    error('Unsupported curve data format.');
+    figure
+    plot(acc_by_nobj.num_objects, acc_by_nobj.accuracy, '-o')
+    grid on
+    xlabel('number of objects')
+    ylabel('accuracy')
+    title('Classification accuracy by constellation size')
 end
 
-function plot_curve_vector_segmented(x, y)
-%PLOT_CURVE_VECTOR_SEGMENTED
-%   Plot one curve vector with automatic NaN breaks at large jumps.
+function name = get_eval_name(eval_objects, idx)
+%GET_EVAL_NAME  Return evaluation object name for either result format.
 
-    x = x(:);
-    y = y(:);
-
-    valid = isfinite(x) & isfinite(y);
-    x = x(valid);
-    y = y(valid);
-
-    if numel(x) < 2
-        plot(x, y, '.', 'MarkerSize', 8);
-        return
+    if any(strcmp(eval_objects.Properties.VariableNames, 'eval_object_name'))
+        name = string(eval_objects.eval_object_name(idx));
+    elseif any(strcmp(eval_objects.Properties.VariableNames, 'object_name'))
+        name = string(eval_objects.object_name(idx));
+    else
+        error('Could not find evaluation object name column.');
     end
-
-    ds = hypot(diff(x), diff(y));
-    positive_ds = ds(ds > 0);
-
-    if isempty(positive_ds)
-        plot(x, y, '.', 'MarkerSize', 8);
-        return
-    end
-
-    h = median(positive_ds);
-
-    jump_factor = 6;
-    breaks = ds > jump_factor * h;
-
-    xx = [];
-    yy = [];
-
-    start_idx = 1;
-
-    for ii = 1:numel(breaks)
-        if breaks(ii)
-            xx = [xx; x(start_idx:ii); NaN]; %#ok<AGROW>
-            yy = [yy; y(start_idx:ii); NaN]; %#ok<AGROW>
-            start_idx = ii + 1;
-        end
-    end
-
-    xx = [xx; x(start_idx:end)];
-    yy = [yy; y(start_idx:end)];
-
-    plot(xx, yy, 'LineWidth', 1.0);
 end
 
-function add_snr_top_axis(ax_bottom, sigmas, snr_table, snr_field)
-%ADD_SNR_TOP_AXIS  Add representative SNR in dB as top x-axis.
-%
-%   Bottom axis:
-%       sigma
-%
-%   Top axis:
-%       SNR in dB corresponding to the same sigma values.
-%
-%   The sigma = 0 point is plotted at min_positive_sigma / 10 on the
-%   bottom axis and labeled as Inf on the SNR axis.
+function name = get_library_name(library_objects, idx)
+%GET_LIBRARY_NAME  Return library object name.
 
-    if ~istable(snr_table)
-        error('Expected method_result.snr to be a table.');
+    if any(strcmp(library_objects.Properties.VariableNames, 'object_name'))
+        name = string(library_objects.object_name(idx));
+    else
+        error('Could not find library object name column.');
     end
-
-    names = string(snr_table.Properties.VariableNames);
-
-    if ~ismember("sigma", names)
-        error('SNR table does not contain field "sigma".');
-    end
-
-    if ~ismember(snr_field, names)
-        error('SNR table does not contain field "%s".', snr_field);
-    end
-
-    snr_sigmas = snr_table.sigma(:);
-    snr_db = snr_table.(snr_field)(:);
-
-    if numel(snr_sigmas) ~= numel(sigmas)
-        error('SNR sigma vector length does not match params.noise_sigmas.');
-    end
-
-    if max(abs(snr_sigmas - sigmas(:))) > 1e-14
-        error('SNR sigma grid does not match params.noise_sigmas.');
-    end
-
-    sigma_ticks = sigma_plot_positions(sigmas);
-
-    snr_labels = strings(size(snr_db));
-
-    for ii = 1:numel(snr_db)
-        if isinf(snr_db(ii))
-            snr_labels(ii) = "Inf";
-        else
-            snr_labels(ii) = sprintf('%.1f', snr_db(ii));
-        end
-    end
-
-    ax_top = axes( ...
-        'Position', ax_bottom.Position, ...
-        'XAxisLocation', 'top', ...
-        'YAxisLocation', 'right', ...
-        'Color', 'none', ...
-        'XScale', ax_bottom.XScale, ...
-        'XLim', ax_bottom.XLim, ...
-        'XTick', sigma_ticks, ...
-        'XTickLabel', snr_labels, ...
-        'YTick', [], ...
-        'Box', 'off');
-
-    xlabel(ax_top, 'Representative late-time SNR (dB)')
-
-    % Keep the bottom axis visually dominant.
-    ax_top.YColor = 'none';
 end
 
-function sigma_plot = sigma_plot_positions(sigmas)
-%SIGMA_PLOT_POSITIONS
-%   Return the x locations used for plotting sigma, including sigma = 0.
-%
-%   Since zero cannot be placed on a log axis, sigma = 0 is plotted at
-%   min_positive_sigma / 10.
+function type = get_object_type_from_name(name)
+%GET_OBJECT_TYPE_FROM_NAME  Extract circ/ell type from generated names.
 
-    sigmas = sigmas(:);
-    sigma_plot = sigmas;
+    name = string(name);
 
-    pos = sigmas > 0;
+    if contains(name, "circ_o050")
+        type = "circ_o050";
+    elseif contains(name, "ell_o075")
+        type = "ell_o075";
+    else
+        type = "unknown";
+    end
+end
 
-    if any(sigmas == 0) && any(pos)
-        sigma_min = min(sigmas(pos));
-        sigma_plot(sigmas == 0) = sigma_min / 10;
+function nobj = get_num_objects_from_name(name)
+%GET_NUM_OBJECTS_FROM_NAME  Extract N from generated constellation names.
+
+    name = char(string(name));
+
+    tokens = regexp(name, '_N(\d+)_', 'tokens', 'once');
+
+    if isempty(tokens)
+        nobj = NaN;
+    else
+        nobj = str2double(tokens{1});
     end
 end
