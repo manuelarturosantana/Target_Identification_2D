@@ -27,7 +27,7 @@ clc
 
 % ---- user-defined parameters ----
 % paths
-input_folder = 'local/data_two_cavity_constellations_2d';
+input_folder = '/scratch/vhojas/data_same_object_constellations_2d_fast';
 
 output_path = fullfile( ...
     'Identification', ...

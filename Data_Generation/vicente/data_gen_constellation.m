@@ -1,17 +1,17 @@
-% generate_same_object_constellation_data.m
+% data_gen_constellation.m
 clear
 clc
 
 % cluster paths
-% addpath(genpath("/home/vhojas/Code/rp2d_matlab/src"));
-% addpath(genpath("/home/vhojas/Code/Target_Identification_2D"));
-% addpath(genpath("/home/vhojas/chebfun"))
+addpath(genpath("/home/vhojas/Code/rp2d_matlab/src"));
+addpath(genpath("/home/vhojas/Code/Target_Identification_2D"));
+addpath(genpath("/home/vhojas/Code/chebfun"));
 
 % laptop (windows) paths
-addpath(genpath("C:\Users\vicen\Code\rp2d_matlab\src"));
-addpath(genpath("C:\Users\vicen\Code\Target_Identification_2D"));
+% addpath(genpath("C:\Users\vicen\Code\rp2d_matlab\src"));
+% addpath(genpath("C:\Users\vicen\Code\Target_Identification_2D"));
 
-save_data_dir = "/scratch/vhojas/data_same_object_constellations_2d";
+save_data_dir = "/scratch/vhojas/data_same_object_constellations_2d_fast";
 if ~exist(save_data_dir, "dir")
     mkdir(save_data_dir);
 end
@@ -27,22 +27,16 @@ t_offset = 30;
 num_receivers_per_obs = 100;
 wimag = -0.5;
 
-max_num_objects = 5;
+max_num_objects = 4;
 
-% Desired global opening direction for same-direction configurations.
-% 3*pi/2 means all openings point downward.
 same_direction_angle = 3*pi/2;
-
-% Local opening direction for the elliptic cavity builder.
-% This assumes ellipticcavity fixes the gap at t = 3*pi/2 before rotation.
 local_ellipse_opening_angle = 3*pi/2;
-
-% Random orientations are reproducible.
 random_orientation_seed = 1;
-
-% Controls the minimum spacing between object centers.
-% Increase this if high-order constellations are too close.
 center_spacing_factor = 2.6;
+
+% Curve refinement, matching the faster plane script.
+points_per_wavelength = 1;
+num_extra_bisections = 1;
 
 % ---------------------------------
 
@@ -51,7 +45,7 @@ rng(random_orientation_seed, "twister");
 [sigmas, wlims] = gauss_picker( ...
     w_0, freq_gauss_width, gauss_picker_tol);
 
-lambda = (2 * pi) / wlims(2);
+lambda = (2*pi) / wlims(2);
 tlims = [0, t_end];
 numt = ceil((tlims(2) / lambda) * 15);
 
@@ -99,8 +93,6 @@ for iobj = 1:numel(obj_names)
 
         ids = repmat(iobj, nobj, 1);
 
-        % Match plot_original_constellation_curves.m:
-        % one canonical single-object case, four orientation families for N >= 2.
         if nobj == 1
             families_here = "single";
         else
@@ -117,7 +109,6 @@ for iobj = 1:numel(obj_names)
                 object_rotations = opening_angles_to_ellipse_rotations( ...
                     opening_angles, local_ellipse_opening_angle);
             else
-                % For circles, rotating the opening or rotating the object is equivalent.
                 object_rotations = opening_angles;
             end
 
@@ -139,11 +130,7 @@ for iobj = 1:numel(obj_names)
             configs(cfg_id).openings = obj_openings(ids);
             configs(cfg_id).centers = centers;
 
-            % Desired global directions of the openings.
             configs(cfg_id).opening_angles = opening_angles;
-
-            % Rigid rotations used for elliptic objects.
-            % For circular objects this is stored only for metadata consistency.
             configs(cfg_id).object_rotations = object_rotations;
 
             configs(cfg_id).same_direction_angle = same_direction_angle;
@@ -156,19 +143,20 @@ end
 
 fprintf("Number of configurations: %d\n", numel(configs));
 
-% Self-convergence check on one representative configuration.
-% The last configuration is the largest elliptic constellation facing origin.
-tol_selfconv = 1e-7;
-max_manual_refs = 5;
-selfconv_config_id = numel(configs);
+config_id = str2double(getenv("SLURM_ARRAY_TASK_ID"));
 
-[num_manual_refs, selfconv_info] = choose_manual_refinements( ...
-    params, configs(selfconv_config_id), tol_selfconv, max_manual_refs);
+if isnan(config_id)
+    config_id = str2double(getenv("CONFIG_ID"));
+end
 
-fprintf("\nUsing %d manual refinements for data generation.\n", ...
-    num_manual_refs);
+if isnan(config_id)
+    error("No config id found. Set SLURM_ARRAY_TASK_ID or CONFIG_ID.");
+end
 
-% Uniformly distributed incident/observation directions.
+if config_id < 1 || config_id > numel(configs)
+    error("Config id %d is outside 1:%d.", config_id, numel(configs));
+end
+
 receiver_angles = linspace(0, 2*pi, num_receivers_per_obs + 1);
 receiver_angles(end) = [];
 
@@ -177,7 +165,7 @@ ys_base = sin(receiver_angles);
 
 start = tic;
 
-for ii = 1:numel(configs)
+for ii = config_id
     config = configs(ii);
 
     fprintf("\n==================================================\n");
@@ -187,10 +175,27 @@ for ii = 1:numel(configs)
 
     geom = build_constellation_geometry_from_config(config);
 
+    % Build a refined curve exactly in the spirit of the faster script:
+    % wavelength refinement followed by one uniform bisection.
+    C = build_curve(geom, params);
+    C = refine_curve_wavenumber(C, 2*pi/params.k, points_per_wavelength);
+
+    for jj = 1:num_extra_bisections
+        C = bisect_all_patches(C);
+        C = build_global_indexing(C);
+        C = get_close_points(C);
+    end
+
     lp = RP2LP(params, geom);
-    lp = refine_lp_manually(lp, num_manual_refs);
+
+    lp.RP_Curve = C;
+    [xb, yb] = get_global_xy(C);
+    lp.curve.X = xb;
+    lp.curve.Y = yb;
+    lp.curve.Flag = "open";
 
     N = lp.RP_Curve.global.N;
+    fprintf("N = %d\n", N);
 
     w_len = wlims(2) - wlims(1);
     num_sub_ints = ceil(w_len / 2.0);
@@ -264,12 +269,14 @@ for ii = 1:numel(configs)
             'ys', y);
 
         tic
-        [uff, ~, r_res] = cts_wpols_LU( ...
+        [uff, ~, r_res, ~, ~, f_sols] = cts_wpols_LU( ...
             psp, lp, pols_wp, L_rl, U_rl, L_pole, U_pole);
         single_receiver_comp_time = toc
 
         uff_all = [uff_all; uff(:).'];
         r_res_all = [r_res_all; r_res(:).'];
+
+        clear f_sols
     end
 
     ts = psp.ts;
@@ -296,8 +303,8 @@ for ii = 1:numel(configs)
         "config_name", ...
         "config_info", ...
         "solver_params", ...
-        "selfconv_info", ...
-        "num_manual_refs", ...
+        "points_per_wavelength", ...
+        "num_extra_bisections", ...
         "pol_comp_time", ...
         "LU_time_real_line", ...
         "LU_time_pols");
@@ -306,12 +313,6 @@ end
 total_time = toc(start)
 
 function centers = make_constellation_centers(nobj, max_object_radius, spacing_factor)
-%MAKE_CONSTELLATION_CENTERS Place n objects in a symmetric constellation.
-%
-% For n = 1, the object is placed at the origin.
-% For n >= 2, centers are equally spaced on a circle centered at the origin.
-% The radius is chosen so adjacent objects have approximately
-% spacing_factor * max_object_radius separation.
 
 if nobj == 1
     centers = [0.0, 0.0];
@@ -321,8 +322,7 @@ end
 min_center_distance = spacing_factor * max_object_radius;
 center_radius = min_center_distance / (2 * sin(pi / nobj));
 
-theta0 = 0.0;
-theta = theta0 + linspace(0, 2*pi, nobj + 1).';
+theta = linspace(0, 2*pi, nobj + 1).';
 theta(end) = [];
 
 centers = [
@@ -334,25 +334,6 @@ end
 
 function opening_angles = make_opening_angles( ...
     centers, family, same_direction_angle)
-%MAKE_OPENING_ANGLES Construct desired global opening directions.
-%
-% single:
-%   canonical single-object orientation.
-%
-% same_direction:
-%   all openings point in the same fixed direction.
-%
-% facing_away_origin:
-%   each opening points radially away from the origin.
-%
-% random_orientation:
-%   each opening has an independent uniform random direction.
-%
-% facing_origin:
-%   each opening points toward the origin.
-%
-% For a single object at the origin, the radial directions are undefined.
-% In that case, radial families use same_direction_angle.
 
 nobj = size(centers, 1);
 opening_angles = zeros(nobj, 1);
@@ -394,33 +375,12 @@ end
 
 function rotations = opening_angles_to_ellipse_rotations( ...
     opening_angles, local_opening_angle)
-%OPENING_ANGLES_TO_ELLIPSE_ROTATIONS Convert desired opening directions
-% into rigid rotations of the elliptic cavity.
-%
-% The elliptic cavity builder should place the opening at local parameter
-% t = local_opening_angle before rotation. Then
-%
-%   global opening direction = local opening direction + rigid rotation.
-%
-% Hence
-%
-%   rigid rotation = global opening direction - local opening direction.
 
 rotations = mod(opening_angles - local_opening_angle, 2*pi);
 
 end
 
 function geom = build_constellation_geometry_from_config(config)
-%BUILD_CONSTELLATION_GEOMETRY_FROM_CONFIG Build the actual RP geometry.
-%
-% config.opening_angles are desired global directions of the openings.
-%
-% For circular cavities:
-%   pass opening_angles directly to cavity_constellation_geometry.
-%
-% For elliptic cavities:
-%   rotate the entire elliptic object using config.object_rotations, so the
-%   opening remains fixed relative to the ellipse axes.
 
 if all(config.object_names == "elliptic")
     geom = elliptic_constellation_geometry( ...
@@ -445,10 +405,6 @@ end
 end
 
 function geom = elliptic_constellation_geometry(a, b, opening, centers, rotations)
-%ELLIPTIC_CONSTELLATION_GEOMETRY Constellation of identical elliptic cavities.
-%
-% rotations are rigid rotations of the full elliptic cavity, not opening
-% angles around a fixed ellipse.
 
 geom = struct();
 geom.is_closed = false;
@@ -466,7 +422,6 @@ end
 end
 
 function Q = translate_piece(P, cx, cy)
-%TRANSLATE_PIECE Translate one geometry piece by (cx, cy).
 
 Q = P;
 
@@ -484,7 +439,6 @@ end
 end
 
 function description = make_config_description(object_name, nobj, family)
-%MAKE_CONFIG_DESCRIPTION Human-readable description for saved metadata.
 
 switch family
     case "single"
@@ -509,108 +463,5 @@ end
 description = sprintf( ...
     "%d same-object %s constellation, %s.", ...
     nobj, object_name, family_text);
-
-end
-
-function [num_manual_refs, info] = choose_manual_refinements( ...
-    params, config, tol, max_refs)
-%CHOOSE_MANUAL_REFINEMENTS Choose manual refinements using far-field
-% convergence of the solved BIE.
-
-fprintf("\n==================================================\n");
-fprintf("Self-convergence calibration\n");
-fprintf("Config: %s\n", config.name);
-fprintf("==================================================\n");
-
-geom = build_constellation_geometry_from_config(config);
-
-xhat_inc = [1/sqrt(2); 1/sqrt(2)];
-
-nobs = 64;
-theta = linspace(0, 2*pi, nobs + 1);
-theta(end) = [];
-
-xhat_obs = [
-    cos(theta)
-    sin(theta)
-];
-
-Lps = cell(max_refs + 1, 1);
-Phis = cell(max_refs + 1, 1);
-Ns = zeros(max_refs + 1, 1);
-
-lp = RP2LP(params, geom);
-
-for lev = 1:(max_refs + 1)
-    phi = solve_planewave_scattering( ...
-        lp.RP_Curve, xhat_inc, params);
-
-    Lps{lev} = lp;
-    Phis{lev} = phi;
-    Ns(lev) = lp.RP_Curve.global.N;
-
-    fprintf("  Level %d: N = %d\n", lev - 1, Ns(lev));
-
-    if lev <= max_refs
-        lp = refine_lp_once(lp);
-    end
-end
-
-u_ref = Lps{end}.eval_far_field(params.k, Phis{end}, xhat_obs);
-
-errs = zeros(max_refs, 1);
-
-fprintf("\nlev   N        max far-field error\n");
-fprintf("-----------------------------------\n");
-
-for lev = 1:max_refs
-    u = Lps{lev}.eval_far_field(params.k, Phis{lev}, xhat_obs);
-    errs(lev) = max(abs(u(:) - u_ref(:)));
-
-    fprintf("%3d  %6d   %.3e\n", lev - 1, Ns(lev), errs(lev));
-end
-
-idx = find(errs <= tol, 1, "first");
-
-if isempty(idx)
-    error("Self-convergence failed: no level reached %.3e.", tol);
-end
-
-num_manual_refs = idx - 1;
-
-info = struct();
-info.config_name = config.name;
-info.tol = tol;
-info.max_refs = max_refs;
-info.num_manual_refs = num_manual_refs;
-info.Ns = Ns;
-info.errs = errs;
-
-fprintf("-----------------------------------\n");
-fprintf("Selected manual refinements: %d\n", num_manual_refs);
-fprintf("Selected error: %.3e\n", errs(idx));
-
-end
-
-function lp = refine_lp_manually(lp, nrefs)
-%REFINE_LP_MANUALLY Refine an RP2LP object without changing the RP2LP class.
-
-for j = 1:nrefs
-    lp = refine_lp_once(lp);
-end
-
-end
-
-function lp = refine_lp_once(lp)
-%REFINE_LP_ONCE One manual bisection refinement of lp.RP_Curve and lp.curve.
-
-C = bisect_all_patches(lp.RP_Curve);
-
-lp.RP_Curve = C;
-
-[xb, yb] = get_global_xy(C);
-lp.curve.X = xb;
-lp.curve.Y = yb;
-lp.curve.Flag = "open";
 
 end
