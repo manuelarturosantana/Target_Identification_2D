@@ -20,7 +20,7 @@ output_path = fullfile( ...
 
 % classification params
 late_time = 80.0;
-sigmas = [0, 1e-6, 1e-5, 1e-4, 1e-3, 1e-2, 1e-1];
+sigmas = [0, 1e-6, 1e-5, 1e-4, 1e-3, 1e-2, 5e-1, 1e-1, 5e-1];
 
 % SNR based on representative single-object library element.
 % For the current generated names, use e.g.
