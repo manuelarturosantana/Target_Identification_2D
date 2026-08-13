@@ -12,4 +12,5 @@
 
 module load matlab
 
-matlab -nodisplay -nosplash -nodesktop -nojvm -r data_gen_quadjet
+matlab -nodisplay -nosplash -nodesktop -nojvm -r data_gen_quadjet_higher
+#matlab -nodisplay -nosplash -nodesktop -nojvm -r data_gen_quadjet

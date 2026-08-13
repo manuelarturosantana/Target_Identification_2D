@@ -53,7 +53,7 @@ function model = build_glrt_model(data, params)
         model(j).poles = data(j).poles(:);
         model(j).late_idx = late_idx;
         model(j).time_window = tt(:);
-        model(j).Ur = U(:, keep);
+        model(j).Ur = U(:, keep); 
         model(j).singular_values = s;
         model(j).retained_rank = nnz(keep);
     end

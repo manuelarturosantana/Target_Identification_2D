@@ -26,6 +26,7 @@ t_offset         = 30;            % time offset
 num_receivers_per_obs = 359;
 are_recivers_random = false;
 
+
 % receiver angles
 angle1 = 0;
 angle2 = 2*pi - 0.0174533; % This ensures that we don't double count the 360 degrees
@@ -35,6 +36,8 @@ wimag  = -0.3;
 % time-domain and AAA derived params
 [sigmas, wlims] = gauss_picker(w_0, freq_gauss_width, ...
     gauss_picker_tol);
+return
+%%
 ws = linspace(wlims(1), wlims(2), 1000);
 psp = problem_data( ...
     'wlims', wlims, ...

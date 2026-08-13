@@ -4,9 +4,9 @@
 clear;
 
 results_file   = 'Identification/classification_results/plane_results_averaged.mat';
-
+% 
+% for obstacle_idx = 6
 for obstacle_idx = 1:10
-% for obstacle_idx = 1
 
 snr_mode = 'late'; % 'early' or 'late'
 show_legend = true;
@@ -28,6 +28,7 @@ accuracy = zeros(nsigma, 1);
 ntrials  = zeros(nsigma, 1);
 nwrong   = zeros(nsigma, 1);
 correct_inds = zeros(nsigma-1, 359);
+
 %%
 inds = trials.true_idx == obstacle_idx;
 for k = 1:nsigma
@@ -43,7 +44,7 @@ end
 
 %% Plots
 
-fig = figure(1);
+fig = figure(obstacle_idx);
 clf
 tiledlayout(1,3);
 nexttile
@@ -53,6 +54,7 @@ opts = struct(); opts.show_nodes= false; opts.plot_color='black'; opts.line_widt
 opts.no_gaps = true;
 plot_curve2(curve, opts);
 grid on
+
 
 nexttile
 
@@ -101,6 +103,11 @@ inds1 = trials.true_idx == 6;
 inds2 = trials.sigma == 1e-6;
 trials.pred_idx(inds1 & inds2)
 sum(trials.correct(inds1 & inds2)) / 360
+
+%%
+inds3 = trials.pred_idx == 1;
+sum(trials.pred_idx(inds1 & inds2 & inds3))
+360 - sum(trials.correct(inds1 & inds2))
 
 %%
 load('/scratch/msantana/plane_data_360/quadjet_plane3.mat')

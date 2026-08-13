@@ -100,7 +100,7 @@ end
 % ------------------------------------------------------------
 start = tic;
 % for ii = 3:length(all_geometries)
-for ii = 3
+for ii = 1
     geom = all_geometries{ii};
 
     fprintf("\n==================================================\n");
@@ -136,7 +136,7 @@ for ii = 3
         wlims_loc = [wlims(1) + (jj - 1) * jump, ...
                      wlims(1) + jj * jump];
 
-        dummy problem data for pole computation
+        %dummy problem data for pole computation
         psp = problem_data( ...
             'wlims', wlims_loc, ...
             'w_0', (wlims_loc(2) + wlims_loc(1)) / 2.0, ...
@@ -153,10 +153,6 @@ for ii = 3
         pols_wp = [pols_wp; pols_wp_loc(:)];
     end
     pol_comp_time = toc(pstart)
-    % Computed from another run, pasted here to save time
-    % pols_wp = 51.252162726932795 - 0.010820654071814i;
-
-
 
     % dummy problem for LU decompositions
     psp = problem_data( ...
