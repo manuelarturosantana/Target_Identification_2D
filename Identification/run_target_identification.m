@@ -7,12 +7,12 @@ clc
 
 % ---- user-defined parameters ----
 % paths
-input_folder = 'local/data_two_cavity_constellations_2d';
+input_folder = 'local/data_deformation_experiment_2d';
 
 output_path = fullfile( ...
     'Identification', ...
     'classification_results', ...
-    'constellation_results.mat');
+    'deformation_results.mat');
 
 % classification params
 late_time = 80.0;
