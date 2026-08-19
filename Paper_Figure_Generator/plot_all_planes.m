@@ -1,8 +1,9 @@
 clear;
 
 clf
-tiledlayout(2,5);
 fig = figure(1);
+tiledlayout(2,5);
+
 
 for obstacle_idx = 1:10
 obstacle_idx

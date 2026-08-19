@@ -1,10 +1,10 @@
 % Script to check that singularites really get subtracted out
 % load("/scratch/msantana/plane_data_360/twinjet_plane3.mat")
-load("/scratch/msantana/plane_data_360/twinjet_plane3.mat")
+load("/scratch/msantana/plane_data_360/twinjet_plane1.mat")
 % load("/scratch/msantana/plane_data_360/quadjet_plane3.mat")
 
 %%
-rec_ind = 1;
+rec_ind = 15;
 figure(1)
 clf
 plot(psp.ws, real(f_sols_all(rec_ind,:)))

@@ -1,4 +1,3 @@
-
 % generates data for 5 twinjet
 % Now we use a refined curve to see if it makes the data better.
 
@@ -16,6 +15,17 @@ if ~exist(save_data_dir, "dir")
 end
 
 out_file = fullfile(save_data_dir, "twinjet1_with_fuel_tank.mat");
+
+% ------------------------------------------------------------
+% Check for a previous (possibly partial) run to resume from
+% ------------------------------------------------------------
+resume_run = isfile(out_file);
+existing_vars = {};
+if resume_run
+    mf_probe = matfile(out_file);       % read-only probe
+    existing_vars = who(mf_probe);
+    fprintf('Found existing output file %s. Attempting to resume.\n', out_file);
+end
 
 % ------------------------------------------------------------
 % Experiment params
@@ -105,40 +115,50 @@ lp = lp.update_RP_Curve(C);
 % total number of points in the curve
 N = lp.RP_Curve.global.N;
 
-% rule of thumb for computing complex resonances
-w_len = wlims(2) - wlims(1);
-num_sub_ints = ceil(w_len / 2.0);
-jump = w_len / num_sub_ints;
+% ------------------------------------------------------------
+% Poles: reuse from disk if this is a resumed run, otherwise compute
+% ------------------------------------------------------------
+if resume_run && ismember('pols', existing_vars)
+    pols_wp = mf_probe.pols;
+    pols_wp = pols_wp(:);
+    pol_comp_time = NaN;  % not recomputed this run
+    fprintf('Loaded %d previously computed poles from disk.\n', numel(pols_wp));
+else
+    % rule of thumb for computing complex resonances
+    w_len = wlims(2) - wlims(1);
+    num_sub_ints = ceil(w_len / 2.0);
+    jump = w_len / num_sub_ints;
 
-pols_wp = [];
-pstart = tic;
+    pols_wp = [];
+    pstart = tic;
 
-for jj = 1:num_sub_ints
-    wlims_loc = [wlims(1) + (jj - 1) * jump, ...
-                 wlims(1) + jj * jump];
+    for jj = 1:num_sub_ints
+        wlims_loc = [wlims(1) + (jj - 1) * jump, ...
+                     wlims(1) + jj * jump];
 
-    %dummy problem data for pole computation
-    psp = problem_data( ...
-        'wlims', wlims_loc, ...
-        'w_0', (wlims_loc(2) + wlims_loc(1)) / 2.0, ...
-        'numw', numw, ...
-        'xs', 0, ...
-        'ys', 0, ...
-        'wimag', wimag, ...
-        'N', N, ...
-        'aaa_tol', 1e-8);
+        %dummy problem data for pole computation
+        psp = problem_data( ...
+            'wlims', wlims_loc, ...
+            'w_0', (wlims_loc(2) + wlims_loc(1)) / 2.0, ...
+            'numw', numw, ...
+            'xs', 0, ...
+            'ys', 0, ...
+            'wimag', wimag, ...
+            'N', N, ...
+            'aaa_tol', 1e-8);
 
-    pols_wp_loc = comp_poles(psp, lp);
-    pols_wp_loc = sort(pols_wp_loc, ...
-        "comparisonMethod", "real");
-    pols_wp = [pols_wp; pols_wp_loc(:)];
+        pols_wp_loc = comp_poles(psp, lp);
+        pols_wp_loc = sort(pols_wp_loc, ...
+            "comparisonMethod", "real");
+        pols_wp = [pols_wp; pols_wp_loc(:)];
+    end
+    pol_comp_time = toc(pstart)
 end
-pol_comp_time = toc(pstart)
 
 % ------------------------------------------------------------
-% Save poles immediately, before the (expensive/large) LU and
-% receiver-loop work below. If anything downstream runs out of
-% memory or crashes, the pole computation is not lost.
+% Save poles (and other static metadata) immediately, before the
+% (expensive/large) LU and receiver-loop work below, but only if
+% they aren't already saved from a previous run.
 % ------------------------------------------------------------
 pols = pols_wp;
 config_name = "twinjet_with_fueltank";
@@ -146,8 +166,10 @@ receiver_angles = linspace(angle1, angle2, num_receivers_per_obs);
 curveX = lp.curve.X;
 curveY = lp.curve.Y;
 
-save(out_file, "pols", "pol_comp_time", "config_name", ...
-    "receiver_angles", "curveX", "curveY", "-v7.3");
+if ~resume_run || ~ismember('pols', existing_vars)
+    save(out_file, "pols", "pol_comp_time", "config_name", ...
+        "receiver_angles", "curveX", "curveY", "-v7.3");
+end
 
 % dummy problem for LU decompositions
 psp = problem_data( ...
@@ -159,6 +181,9 @@ psp = problem_data( ...
     'wimag', wimag, ...
     'N', N);
 
+% NOTE: L_rl/U_rl/L_pole/U_pole are not persisted to disk (they're
+% large and cheap-ish relative to the receiver loop), so these are
+% recomputed every run, resumed or not.
 tic
 [L_rl, U_rl] = comp_bie_LU(psp.ws, lp);
 LU_time_real_line = toc
@@ -167,31 +192,63 @@ tic
 [L_pole, U_pole] = comp_pole_LU(psp, lp, pols_wp);
 LU_time_pols = toc
 
-if are_recivers_random
-    [xs, ys] = ff_points_random(angle1, angle2, ...
-        num_receivers_per_obs);
+% ------------------------------------------------------------
+% Receiver coordinates: reuse from disk if resuming, so the
+% receiver set is identical across runs; otherwise generate fresh.
+% ------------------------------------------------------------
+if resume_run && ismember('xs', existing_vars) && ismember('ys', existing_vars)
+    xs = mf_probe.xs;
+    ys = mf_probe.ys;
+    fprintf('Loaded existing receiver coordinates from disk.\n');
 else
-    [xs, ys] = ff_points_equally_spaced(angle1, angle2, ...
-        num_receivers_per_obs);
+    if are_recivers_random
+        [xs, ys] = ff_points_random(angle1, angle2, ...
+            num_receivers_per_obs);
+    else
+        [xs, ys] = ff_points_equally_spaced(angle1, angle2, ...
+            num_receivers_per_obs);
+    end
 end
 
-% append receiver coordinates now that they're known
+% open (or create) the matfile in writable mode
 mf = matfile(out_file, "Writable", true);
 mf.xs = xs;
 mf.ys = ys;
 
 % ------------------------------------------------------------
+% Determine how many receivers are already computed and saved,
+% so the loop below can resume from that point.
+% ------------------------------------------------------------
+rows_written = 0;
+ts_saved = false;
+
+if resume_run && ismember('uff_all', existing_vars)
+    info = whos(mf_probe, 'uff_all');
+    rows_written = info.size(1);
+    rows_written = min(rows_written, num_receivers_per_obs);
+    fprintf('Resuming: %d of %d receivers already computed.\n', ...
+        rows_written, num_receivers_per_obs);
+end
+
+if resume_run && ismember('ts', existing_vars)
+    ts_saved = true;
+end
+
+if rows_written >= num_receivers_per_obs
+    fprintf('All %d receivers already computed. Nothing to do.\n', ...
+        num_receivers_per_obs);
+else
+
+% ------------------------------------------------------------
 % Receiver loop with buffered disk flushing every save_every
 % receivers, so uff_all/r_res_all/f_sols_all never fully live
-% in RAM at once.
+% in RAM at once. Starts from rows_written+1 when resuming.
 % ------------------------------------------------------------
 uff_buf    = {};
 r_res_buf  = {};
 f_sols_buf = {};
-rows_written = 0;   % how many receiver rows already flushed to disk
-ts_saved = false;
 
-for rind = 1:num_receivers_per_obs
+for rind = (rows_written + 1):num_receivers_per_obs
     x = xs(rind);
     y = ys(rind);
 
@@ -226,24 +283,31 @@ for rind = 1:num_receivers_per_obs
     f_sols_buf{end+1} = f_sols(:).';
 
     is_last = (rind == num_receivers_per_obs);
-    if mod(rind, save_every) == 0 || is_last
+    if mod(rind - rows_written, save_every) == 0 || is_last
         block_uff    = cell2mat(uff_buf(:));
         block_r_res  = cell2mat(r_res_buf(:));
         block_f_sols = cell2mat(f_sols_buf(:));
 
-        row_start = rows_written + 1;
-        row_end   = rows_written + size(block_uff, 1);
+        n_new = size(block_uff, 1);
+        row_start = rind - n_new + 1;
+        row_end   = rind;
 
-        mf.uff_all(row_start:row_end, :)    = block_uff;
-        mf.r_res_all(row_start:row_end, :)  = block_r_res;
-        mf.f_sols_all(row_start:row_end, :) = block_f_sols;
+        % Get column dimensions explicitly
+        n_cols_uff    = size(block_uff, 2);
+        n_cols_r_res  = size(block_r_res, 2);
+        n_cols_f_sols = size(block_f_sols, 2);
 
-        rows_written = row_end;
+        % Write using explicit ranges instead of ':'
+        mf.uff_all(row_start:row_end, 1:n_cols_uff)       = block_uff;
+        mf.r_res_all(row_start:row_end, 1:n_cols_r_res)   = block_r_res;
+        mf.f_sols_all(row_start:row_end, 1:n_cols_f_sols) = block_f_sols;
 
-        % free the buffers and force MATLAB to reclaim memory
+        % Free the buffers and reclaim memory
         uff_buf = {}; r_res_buf = {}; f_sols_buf = {};
         clear block_uff block_r_res block_f_sols
     end
 end
+
+end % if rows_written >= num_receivers_per_obs
 
 total_time = toc(start)

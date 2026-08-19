@@ -10,7 +10,7 @@ function densities = comp_dens(ps,lp, L, U)
 %   densities a matrix with densities for each frequency in each column
 
 
-    use_LU = nargin == 4;
+    use_LU = (nargin == 4);
 
 
     if ps.is_open_curve || ps.is_rp_curve
@@ -24,9 +24,9 @@ function densities = comp_dens(ps,lp, L, U)
     densities = zeros(ndof, ps.numw);
     
     parfor wind = 1:ps.numw
-    % for wind = 1:ps.numw
+    %for wind = 1:ps.numw
         rhs = -exp(1i * ps.ws(wind) * (ps.kappa * bndpts)).';
-        if use_LU == 4
+        if use_LU
             den = U{wind} \ (L{wind} \ rhs);
         else
             den = lp.bie_mat(ps.ws(wind)) \ rhs;

@@ -7,13 +7,21 @@ clc
 
 % ---- user-defined parameters ----
 % paths
-input_folder = '/scratch/msantana/plane_data_360';
+% input_folder = '/scratch/msantana/plane_data_360';
+% %
+% 
+% output_path = fullfile( ...
+%     'Identification', ...
+%     'classification_results', ...
+%     'plane_results_averaged.mat');
+
+input_folder = '/scratch/msantana/plane_data_fuel_tank';
 %
 
 output_path = fullfile( ...
     'Identification', ...
     'classification_results', ...
-    'plane_results_averaged.mat');
+    'plane_results_averaged_fuel_tank.mat');
 
 % classification params
 late_time = 40.0;

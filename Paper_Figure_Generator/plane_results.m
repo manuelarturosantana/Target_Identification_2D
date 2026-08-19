@@ -1,5 +1,7 @@
 % read_averaged_classification_results.m
 %
+
+% raw data lives in /scratch/msantana/plane_data_360
 clear;
 results_file = 'Identification/classification_results/plane_results_averaged.mat';
 
@@ -10,7 +12,7 @@ num_bounds   = length(angle_bounds);
 tiledlayout(2,2);
 
 loop_cnt = 0; % Track loop iteration for transposing the layout
-obs_indicies = [3, 9]; % Failure example
+obs_indicies = [6, 9]; % Failure example
 ax_top = gobjects(1, 2); % Store axes handles for top row to sync limits
 
 for obstacle_idx = obs_indicies
@@ -79,17 +81,20 @@ for obstacle_idx = obs_indicies
     num_snr_curves = length(results.snr.sigma) - 1;
     snr_colors = lines(num_snr_curves);
 
+    % Sort by wrapped angle so the line plots cleanly over [-180, 180]
+    [angles_sorted, sort_idx] = sort(angles_wrapped);
+
     legend_data = {};
     hold on
     for ii = 1:num_snr_curves
         % Plot line using explicit color array
-        plot(rad2deg(results.snr.receiver_angle), snr_data(ii+1,:,obstacle_idx), ...
+        plot(angles_sorted, snr_data(ii+1, sort_idx, obstacle_idx), ...
              'Color', snr_colors(ii, :), 'LineWidth', 1.5);
         
         legend_data{end+1} = "$\sigma$ = " + num2str(results.snr.sigma(ii+1));
         
-        inds_missed = ~correct_inds(ii,:);
-        plot(rad2deg(results.snr.receiver_angle(inds_missed)), snr_data(ii+1,inds_missed,obstacle_idx), 'ko');
+        inds_missed = ~correct_inds(ii, sort_idx);
+        plot(angles_sorted(inds_missed), snr_data(ii+1, sort_idx(inds_missed), obstacle_idx), 'ko');
         
         if sum(~correct_inds(ii,:) ~= 0)
             legend_data{end+1} = "";
@@ -111,7 +116,7 @@ for obstacle_idx = obs_indicies
         yticklabels([])
     end
 
-    xlim([0, 360])
+    xlim([-180, 180])
     title(plane_name)
     ax = gca; ax.FontSize = 15;
     grid on
