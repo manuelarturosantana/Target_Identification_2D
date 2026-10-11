@@ -29,6 +29,7 @@ params.late_time = 80.0;
 params.noise_sigmas = [1e-6, 1e-5, 1e-4, 1e-3, 1e-2, 1e-1];
 params.svd_tol = 1e-12;
 params.random_seed = 2026;
+params.noise_on_full_time_grid = false;
 
 % Other options are averaged, single_objected_averaged
 params.snr_report_type = "representative_object"; 
