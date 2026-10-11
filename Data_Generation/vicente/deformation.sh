@@ -11,7 +11,11 @@
 #SBATCH --mem=1000G
 #SBATCH --exclusive
 #SBATCH --hint=nomultithread
-#SBATCH --array=1-26%3
+
+# Full run
+##SBATCH --array=1-20%3
+# Run only configurations that failed
+#SBATCH --array=6,18%3
 
 #SBATCH --chdir=/home/vhojas/Code/Target_Identification_2D/Data_Generation/vicente
 #SBATCH --output=/home/vhojas/Code/Target_Identification_2D/Data_Generation/vicente/logs/deformation_%A_%a.out

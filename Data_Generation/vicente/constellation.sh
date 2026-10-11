@@ -6,10 +6,16 @@
 
 #SBATCH --time=3-00:00:00
 #SBATCH --nodes=1
-#SBATCH --ntasks=1
+#SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=128
 #SBATCH --mem=1000G
-#SBATCH --array=1-26%1
+#SBATCH --exclusive
+#SBATCH --hint=nomultithread
+
+# full job
+##SBATCH --array=1-26%1
+# partial job
+#SBATCH --array=26%3
 
 #SBATCH --chdir=/home/vhojas/Code/Target_Identification_2D/Data_Generation/vicente
 #SBATCH --output=/home/vhojas/Code/Target_Identification_2D/Data_Generation/vicente/logs/constellations_%A_%a.out
