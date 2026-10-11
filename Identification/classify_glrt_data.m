@@ -2,7 +2,9 @@ function results = classify_glrt_data(data, model, params)
 %CLASSIFY_GLRT_DATA  Classify all receiver signals using a GLRT model.
 %
 %   results = CLASSIFY_GLRT_DATA(data, model, params) classifies every
-%   receiver signal in data against every GLRT basis in model.
+%   receiver signal in data against every GLRT basis in model. Each row of
+%   results.trials also records receiver_angle, snr_full_db, and
+%   snr_late_db for the clean signal at that trial's noise sigma.
 %
 %   Default behavior:
 %       If no classification map is attached to model, this function
@@ -61,6 +63,27 @@ function results = classify_glrt_data(data, model, params)
 
     late_idx = model(1).late_idx;
 
+    % Cache clean-signal RMS values so per-trial SNR reporting does not
+    % repeatedly scan the time series for every noise level.
+    rms_full_by_object = cell(neval, 1);
+    rms_late_by_object = cell(neval, 1);
+
+    for j = 1:neval
+        signals = data(j).signals;
+        nreceiver = size(signals, 1);
+        rms_full_by_object{j} = zeros(nreceiver, 1);
+        rms_late_by_object{j} = zeros(nreceiver, 1);
+
+        for ireceiver = 1:nreceiver
+            full_signal = signals(ireceiver, :);
+            late_signal = signals(ireceiver, late_idx:end);
+            rms_full_by_object{j}(ireceiver) = ...
+                sqrt(mean(abs(full_signal).^2));
+            rms_late_by_object{j}(ireceiver) = ...
+                sqrt(mean(abs(late_signal).^2));
+        end
+    end
+
     % Count total trials.
     ntrials_per_sigma = 0;
 
@@ -74,6 +97,9 @@ function results = classify_glrt_data(data, model, params)
     true_idx = zeros(ntrials, 1);      % index into data
     pred_idx = zeros(ntrials, 1);      % index into model/library_data
     receiver_idx = zeros(ntrials, 1);
+    receiver_angle = nan(ntrials, 1);
+    snr_full_db = zeros(ntrials, 1);
+    snr_late_db = zeros(ntrials, 1);
     score_max = zeros(ntrials, 1);
     correct = false(ntrials, 1);
     scores_all = zeros(ntrials, nlib);
@@ -98,9 +124,34 @@ function results = classify_glrt_data(data, model, params)
 
                 f = signals(irec, late_idx:end).';
 
+                if ~isempty(data(itrue).receiver_angles)
+                    receiver_angle(row) = data(itrue).receiver_angles(irec);
+                end
+
+                if sigma == 0
+                    snr_full_db(row) = Inf;
+                    snr_late_db(row) = Inf;
+                else
+                    snr_full_db(row) = 20 * log10( ...
+                        rms_full_by_object{itrue}(irec) / sigma);
+                    snr_late_db(row) = 20 * log10( ...
+                        rms_late_by_object{itrue}(irec) / sigma);
+                end
+
                 if sigma > 0
-                    noise = (sigma / sqrt(2)) * ...
-                        (randn(size(f)) + 1i * randn(size(f)));
+                    if isfield(params, 'noise_on_full_time_grid') && ...
+                            params.noise_on_full_time_grid
+                        % Generate noise on the common full time grid before
+                        % cropping. Runs with different late-time cutoffs then
+                        % see the same noise realization at the same times.
+                        noise_size = size(signals(irec, :).');
+                        noise_full = (sigma / sqrt(2)) * ...
+                            (randn(noise_size) + 1i * randn(noise_size));
+                        noise = noise_full(late_idx:end);
+                    else
+                        noise = (sigma / sqrt(2)) * ...
+                            (randn(size(f)) + 1i * randn(size(f)));
+                    end
                     f = f + noise;
                 end
                 
@@ -157,12 +208,15 @@ function results = classify_glrt_data(data, model, params)
         fprintf('\n');
     end
 
-    % Preserve the original trials table fields.
+    % Preserve the original fields and append receiver/SNR metadata.
     trials = table( ...
         sigma_col, ...
         true_idx, ...
         pred_idx, ...
         receiver_idx, ...
+        receiver_angle, ...
+        snr_full_db, ...
+        snr_late_db, ...
         score_max, ...
         correct, ...
         'VariableNames', { ...
@@ -170,6 +224,9 @@ function results = classify_glrt_data(data, model, params)
             'true_idx', ...
             'pred_idx', ...
             'receiver_idx', ...
+            'receiver_angle', ...
+            'snr_full_db', ...
+            'snr_late_db', ...
             'score_max', ...
             'correct'});
 
